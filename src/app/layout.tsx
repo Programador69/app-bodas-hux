@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 
-export const montserrat = localFont({
+const montserrat = localFont({
   src: "./fonts/Montserrat-Regular.ttf",
   display: "swap",
   variable: "--font-montserrat",
