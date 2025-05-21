@@ -1,0 +1,11 @@
+.articlePr3 {
+    background-image: url("/3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.articlePr3 .imagenes {
+    padding-top: 150px;
+    padding-bottom: 30px;
+}

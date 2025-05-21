@@ -1,0 +1,84 @@
+.respuesta {
+    text-align: center;
+}
+
+.respuesta h1, .respuesta h2, .respuesta h3, .respuesta span, .respuesta p {
+    font-family: "RocknRoll One", sans-serif;
+}
+
+.respuesta h2 {
+    font-size: 1.1rem;
+}
+
+.respuesta h3 {
+    font-size: 1.1em;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.respuesta span {
+    font-size: 1.5em;
+}
+
+.despedida {
+    width: 75%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.respuesta main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f6f6f6;
+    color: #1e1e1e;
+    padding: 20px 0;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.respuesta main a {
+    color: #4565f3;
+}
+
+.respuesta main section {
+    width: 90%;
+}
+
+.respuesta main section p {
+    text-align: start;
+}
+
+.respuesta main .bonus p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+footer {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.respuesta footer h4 {
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.respuesta footer p, .respuesta footer span {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.botonRepetir {
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    color: #eee;
+}

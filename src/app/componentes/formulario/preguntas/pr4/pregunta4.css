@@ -1,0 +1,21 @@
+.articlePr4 {
+    background-color: #fff;
+    background-image: url("/4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.articlePr4 .imagenes {
+    padding-top: 160px;
+    padding-bottom: 30px;
+}
+
+.articlePr4 .imagenes button {
+    height: 150px;
+    text-align: center;
+    color: #eee;
+    background-color: #1c3f7b;
+    line-height: 1.5;
+    padding: 5px 10px;
+}

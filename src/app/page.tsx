@@ -1,95 +1,77 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import "./App.css";
+import { useReducer, useState } from "react";
+import { reducer, cotizar } from "./actions";
+import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras } from "./componentes/formulario/preguntas";
+import { Respuesta, Formulario } from "./componentes";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}});
+    const [botonClickeado, setBotonClickeado] = useState(false);
+    const [cotizacion, setCotizacion] = useState(0);
+    const [iteracion, setIteracion] = useState(0);
+    const [nombre, setNombre] = useState("");
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    const arrayPreguntas = [
+      <Pr1 dispatch={dispatch} setIteracion={setIteracion} key={"pr1"}/>,
+      <Pr2 dispatch={dispatch} setIteracion={setIteracion} key={"pr2"}/>,
+      <Pr3 dispatch={dispatch} setIteracion={setIteracion} key={"pr3"}/>,
+      <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
+      <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
+      <Extras dispatch={dispatch} key={"extras"}/>,
+      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={state} key={"formualrioFinal"}/>
+    ];
+
+    const handleClickCotizar = () => {
+        const cotizacion = cotizar(state);
+        setCotizacion(cotizacion);
+        setIteracion(it => it + 1);
+    }
+
+    return (
+        <>
+
+        {
+            botonClickeado ? <Respuesta cotizacion={cotizacion} boton={setBotonClickeado} setIteracion={setIteracion} nombre={nombre} /> : (
+                <>
+                {
+                  iteracion == 0 ? (
+                    <>
+                      <h1 className="titulo">Calcula el sueño de tu boda</h1>
+                      <h2 className="h2Inicio">Tu boda, Tu estilo, Tu inversión.</h2>
+                      <h3 className="h3Inicio">Descubre en solo 2 minutos cuál sería la inversión de la boda que imaginas en el paraíso Huatulco</h3>
+                    </>
+                  ) : (
+                    <>
+                      <h1></h1>
+                    </>
+
+                  )
+                }
+
+                    <main>
+                        <section className="contenedorPreguntas">
+                            {
+                                iteracion == 5 ? (
+                                    <>
+                                        {arrayPreguntas[iteracion]}
+                                        <button className="botonCotizar" onClick={handleClickCotizar}>Cotizar</button>
+                                    </>
+                                ) : (
+                                  <>
+                                    {arrayPreguntas[iteracion]}
+                                  </>
+                                )
+                            }
+                        </section>
+                    </main>
+
+                    <footer>
+                          <h4>Todos los derechos resevados</h4>
+                    </footer>
+                </>
+            )
+        }
+        </>
+    );
 }

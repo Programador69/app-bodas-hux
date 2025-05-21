@@ -1,0 +1,12 @@
+.articlePr5 {
+    background-color: #fff;
+    background-image: url("/5.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.articlePr5 .imagenes {
+    padding-top: 180px;
+    padding-bottom: 30px;
+}

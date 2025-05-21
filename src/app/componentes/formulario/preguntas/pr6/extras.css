@@ -1,0 +1,39 @@
+.contenedor {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+}
+
+.contenedor li {
+  list-style: none;
+  width: 45%;
+}
+
+.contenedor li img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.contenedor li label input {
+  margin: 0;
+  width: 30%;
+}
+
+.articleExtras {
+    background-color: #fff;
+    background-image: url("/6.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10px;
+}
+
+.articleExtras .contenedor {
+    padding-top: 150px;
+    padding-bottom: 30px;
+}
