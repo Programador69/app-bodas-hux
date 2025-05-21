@@ -8,13 +8,13 @@ export const montserrat = localFont({
   variable: "--font-montserrat",
 })
 
-export const dancing = localFont({
+const dancing = localFont({
   src: "./fonts/DancingScript-VariableFont_wght.ttf",
   display: "swap",
   variable: "--font-dancing",
 })
 
-export const rocknroll = localFont({
+const rocknroll = localFont({
   src: "./fonts/RocknRollOne-Regular.ttf",
   display: "swap",
   variable: "--font-rocknroll",
