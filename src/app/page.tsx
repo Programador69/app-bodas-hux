@@ -19,7 +19,7 @@ export default function Home() {
       <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
       <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
       <Extras dispatch={dispatch} key={"extras"}/>,
-      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={state} key={"formualrioFinal"}/>
+      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formualrioFinal"}/>
     ];
 
     const handleClickCotizar = () => {

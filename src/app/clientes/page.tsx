@@ -1,18 +1,38 @@
 "use client";
 import "./page.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { validarClave, obtenerDatosBD } from "../actions";
+import { QueryResultRow } from "@vercel/postgres";
 
 export default function Clientes() {
     const [isValid, setIsValid] = useState(false);
     const [password, setPassword] = useState("");
+    const [informacion, setInformacion] = useState<QueryResultRow[]>([]);
 
-    // const obtenerDatos = () => {
-    //     const info = informacion;
-    // }
+    useEffect(() => {
+        const fetchData = async () => {
+            const info: QueryResultRow[] | undefined = await obtenerDatosBD();
+            if (info) {
+                setInformacion(info);
+            }
+        };
 
-    const validar = () => {
+        if (!isValid) {
+            return;
+        }
+
+        fetchData();
+    }, [isValid]);
+
+    const validar = async () => {
         const contra = password;
-        console.log(contra);
+
+        const res = await validarClave(contra);
+
+        if (!res) {
+            alert("Contraseña incorrecta");
+            return;
+        }
         setIsValid(true);
     }
 
@@ -39,13 +59,13 @@ export default function Clientes() {
                             {
                                 // Aqui haremos un ul con los datos de la base de datos
                                 // y los mostraremos en una tabla
-                                informacion.map((item, index) => (
-                                    <ul key={index}>
+                                informacion.map((item) => (
+                                    <ul key={item.is}>
                                         <li>{item.nombre}</li>
                                         <li>{item.apellido}</li>
                                         <li>{item.celular}</li>
                                         <li>{item.correo}</li>
-                                        <li>${item.cotizacion.toLocaleString("es-MX")}</li>
+                                        <li>${parseInt(item.cotizacion).toLocaleString("es-MX")}</li>
                                         <ul className="ulDesgloce">
                                             <li><span>Invitados:</span> {item.invitados}</li>
                                             <li><span>Ceremonia:</span> {item.ceremonia}</li>
@@ -64,70 +84,70 @@ export default function Clientes() {
     );
 }
 
-const informacion = [
-    {
-        nombre: "Juan",
-        apellido: "Pérez",
-        celular: "1234567890",
-        correo: "ej@ej.com",
-        cotizacion: 10000,
-        invitados: "Solo Nosotros 2",
-        ceremonia: "Simbólica",
-        decoracion: "Sencilla y Natural",
-        musica: "Solo Algo de fondo",
-        menu: "Solo canapes y bocadillos",
-        extras: "Fotografia, Video, ",
-    },
-    {
-        nombre: "Pedro",
-        apellido: "Gómez",
-        celular: "0987654321",
-        correo: "ejemplo@jsmsm.com",
-        cotizacion: 20000,
-        invitados: "Menos de 15 invitados",
-        ceremonia: "Religiosa",
-        decoracion: "Intima con Detalles",
-        musica: "Un momento especial",
-        menu: "Taquiza o comida típica mexicana",
-        extras: "Fotografia, Video, Maquillaje, ",
-    },
-    {
-        nombre: "Pedro",
-        apellido: "Gómez",
-        celular: "0987654321",
-        correo: "ejemplo@jsmsm.com",
-        cotizacion: 20000,
-        invitados: "Menos de 15 invitados",
-        ceremonia: "Religiosa",
-        decoracion: "Intima con Detalles",
-        musica: "Un momento especial",
-        menu: "Taquiza o comida típica mexicana",
-        extras: "Fotografia, Video, Maquillaje, ",
-    },
-    {
-        nombre: "Pedro",
-        apellido: "Gómez",
-        celular: "0987654321",
-        correo: "ejemplo@jsmsm.com",
-        cotizacion: 20000,
-        invitados: "Menos de 15 invitados",
-        ceremonia: "Religiosa",
-        decoracion: "Intima con Detalles",
-        musica: "Un momento especial",
-        menu: "Taquiza o comida típica mexicana",
-        extras: "Fotografia, Video, Maquillaje, ",
-    },
-    {
-        nombre: "Pedro",
-        apellido: "Gómez",
-        celular: "0987654321",
-        correo: "ejemplo@jsmsm.com",
-        cotizacion: 20000,
-        invitados: "Menos de 15 invitados",
-        ceremonia: "Religiosa",
-        decoracion: "Intima con Detalles",
-        musica: "Un momento especial",
-        menu: "Taquiza o comida típica mexicana",
-        extras: "Fotografia, Video, Maquillaje, ",
-    }
-]
+// const informacion = [
+//     {
+//         nombre: "Juan",
+//         apellido: "Pérez",
+//         celular: "1234567890",
+//         correo: "ej@ej.com",
+//         cotizacion: 10000,
+//         invitados: "Solo Nosotros 2",
+//         ceremonia: "Simbólica",
+//         decoracion: "Sencilla y Natural",
+//         musica: "Solo Algo de fondo",
+//         menu: "Solo canapes y bocadillos",
+//         extras: "Fotografia, Video, ",
+//     },
+//     {
+//         nombre: "Pedro",
+//         apellido: "Gómez",
+//         celular: "0987654321",
+//         correo: "ejemplo@jsmsm.com",
+//         cotizacion: 20000,
+//         invitados: "Menos de 15 invitados",
+//         ceremonia: "Religiosa",
+//         decoracion: "Intima con Detalles",
+//         musica: "Un momento especial",
+//         menu: "Taquiza o comida típica mexicana",
+//         extras: "Fotografia, Video, Maquillaje, ",
+//     },
+//     {
+//         nombre: "Pedro",
+//         apellido: "Gómez",
+//         celular: "0987654321",
+//         correo: "ejemplo@jsmsm.com",
+//         cotizacion: 20000,
+//         invitados: "Menos de 15 invitados",
+//         ceremonia: "Religiosa",
+//         decoracion: "Intima con Detalles",
+//         musica: "Un momento especial",
+//         menu: "Taquiza o comida típica mexicana",
+//         extras: "Fotografia, Video, Maquillaje, ",
+//     },
+//     {
+//         nombre: "Pedro",
+//         apellido: "Gómez",
+//         celular: "0987654321",
+//         correo: "ejemplo@jsmsm.com",
+//         cotizacion: 20000,
+//         invitados: "Menos de 15 invitados",
+//         ceremonia: "Religiosa",
+//         decoracion: "Intima con Detalles",
+//         musica: "Un momento especial",
+//         menu: "Taquiza o comida típica mexicana",
+//         extras: "Fotografia, Video, Maquillaje, ",
+//     },
+//     {
+//         nombre: "Pedro",
+//         apellido: "Gómez",
+//         celular: "0987654321",
+//         correo: "ejemplo@jsmsm.com",
+//         cotizacion: 20000,
+//         invitados: "Menos de 15 invitados",
+//         ceremonia: "Religiosa",
+//         decoracion: "Intima con Detalles",
+//         musica: "Un momento especial",
+//         menu: "Taquiza o comida típica mexicana",
+//         extras: "Fotografia, Video, Maquillaje, ",
+//     }
+// ]

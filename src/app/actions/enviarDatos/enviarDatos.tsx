@@ -1,6 +1,7 @@
 "use server";
 
 import { Estado } from "@/app/utilidades/types";
+import { subirDatosBD } from "../index";
 
 type FormData = {
     'data[Client][first_name]': string;
@@ -39,15 +40,9 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
         'musica': respuestaMusica,
         'menu': respuestaMenu,
         'extras': respuestaExtras,
+        "cotizacion" : datos.cotizacion || 0,
     }
 
-    // enviar los datos completos a la BD
-    console.log('Datos enviados:', dataFinal);
-    // subir el proyecto a github
-    // crear la app en vercel
-    // crear la bd y copiar las credenciales
-    // crear la concexion y subir los datos
-
-    // crear la seccion de admin
-    // crear la contraseña basandonos en la encryptacion del proeycto anterior y solo haremos la comprobacion de la contraseña, sin usuario
+    // console.log('Datos enviados:', dataFinal);
+    await subirDatosBD(dataFinal);
 }
