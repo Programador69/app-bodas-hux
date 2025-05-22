@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import Script from "next/script";
+// import Script from "next/script";
 
 const montserrat = localFont({
   src: "./fonts/Montserrat-Regular.ttf",
@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${montserrat.variable} ${dancing.variable} ${rocknroll.variable}`}>
         {children}
-        <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
+        {/* <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" /> */}
       </body>
     </html>
   );
