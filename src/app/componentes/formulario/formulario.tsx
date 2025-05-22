@@ -161,9 +161,7 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
           />
         </div>
 
-        <div className="form-group center-block" id="reCaptcha">
-          <div className="g-recaptcha center-block" data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK"></div>
-	      </div>
+        <div className="form-group center-block" id="reCaptcha"><div className="g-recaptcha center-block" data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK"></div></div>
         
         <div className="submit">
           <input className="btn btn-default" type="submit" value="Número mágico"/>
