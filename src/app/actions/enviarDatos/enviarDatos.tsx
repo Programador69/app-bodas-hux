@@ -22,9 +22,9 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
     // Mandar la solicitud al CRM original
     const res = await fetch(action, {
         method: method,
-        body: JSON.stringify(formData), // Si espera x-www-form-urlencoded cambiar a -> new URLSearchParams(formData).toString()
+        body: formData.toString(), // Si espera JSON cambiar a -> JSON.stringify(formData)
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
     });
 
