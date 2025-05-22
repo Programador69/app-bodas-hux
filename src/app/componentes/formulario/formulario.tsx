@@ -85,6 +85,7 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
 
   // Prueba tres
   useEffect(() => {
+    console.log("Cargando script de reCAPTCHA");
     const script = document.createElement('script');
     script.src = "https://www.google.com/recaptcha/api.js";
     script.async = true;
@@ -247,7 +248,9 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
           />
         </div>
 
-        <div className="form-group center-block" id="reCaptcha"><div className="g-recaptcha center-block" data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK"></div></div>
+          {/* <div className="g-recaptcha center-block" data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK">
+            </div> */}
+        <div className="form-group center-block" id="reCaptcha"></div>
         
         <div className="submit">
           <input className="btn btn-default" type="submit" value="Número mágico"/>
