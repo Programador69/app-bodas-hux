@@ -25,7 +25,7 @@ export function Pr4({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
                 </button>
 
                 <button onClick={() => manejarCambio("43100", dispatch, "pr4", setIteracion)}>
-                    <span>Fiesta total (DJ + efectos especiales (luces, pista iluminada, etc.) para hacer un fiestón)</span>
+                    <span>Fiesta total (DJ + efectos especiales luces, pista iluminada, etc. Para hacer un fiestón)</span>
                 </button>
                 <button onClick={() => manejarCambio("150000", dispatch, "pr4", setIteracion)}>
                     <span>Experiencia completa (música en vivo para ceremonia/cóctel, DJ/banda para la fiesta, con ambientación y producción pro)</span>
