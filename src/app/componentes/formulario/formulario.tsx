@@ -72,10 +72,10 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
     e.preventDefault();
 
     // Valida si el token de reCAPTCHA existe
-    if (!formData.recaptchaToken) {
-      alert('Por favor, completa el reCAPTCHA.');
-      return;
-    }
+    // if (!formData.recaptchaToken) {
+    //   alert('Por favor, completa el reCAPTCHA.');
+    //   return;
+    // }
 
     try {
       const action = e.currentTarget.action;
