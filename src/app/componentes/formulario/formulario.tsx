@@ -10,6 +10,7 @@ declare global {
     grecaptcha: {
       ready: (cb: () => void) => void;
       render: (container: string | HTMLElement, parameters: Record<string, unknown>) => void;
+      reset: (widgetId?: string | number) => void;
     };
   }
 }
@@ -60,26 +61,90 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
   //   };
   // }, []);
 
+  // Prueba dos
+//   useEffect(() => {
+//   if (window.grecaptcha) {
+//     window.grecaptcha.ready(function() {
+//       // Si ya hay un reCAPTCHA renderizado, lo reseteamos o lo evitamos.
+//       // Una forma de evitar doble renderizado si hay un problema:
+//       const reCaptchaElement = document.getElementById('reCaptcha');
+//       if (reCaptchaElement && reCaptchaElement.children.length === 0) {
+//         window.grecaptcha.render('reCaptcha', {
+//           'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
+//           'callback': (token: string) => {
+//             setFormData(prev => ({ ...prev, recaptchaToken: token }));
+//           },
+//           'expired-callback': () => {
+//             setFormData(prev => ({ ...prev, recaptchaToken: null }));
+//           }
+//         });
+//       }
+//     });
+//   }
+// }, []);
+
+  // Prueba tres
   useEffect(() => {
-  if (window.grecaptcha) {
-    window.grecaptcha.ready(function() {
-      // Si ya hay un reCAPTCHA renderizado, lo reseteamos o lo evitamos.
-      // Una forma de evitar doble renderizado si hay un problema:
-      const reCaptchaElement = document.getElementById('reCaptcha');
-      if (reCaptchaElement && reCaptchaElement.children.length === 0) {
-        window.grecaptcha.render('reCaptcha', {
-          'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
-          'callback': (token: string) => {
-            setFormData(prev => ({ ...prev, recaptchaToken: token }));
-          },
-          'expired-callback': () => {
-            setFormData(prev => ({ ...prev, recaptchaToken: null }));
+    const script = document.createElement('script');
+    script.src = "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      // Pequeño retardo para asegurar que grecaptcha esté completamente disponible
+      setTimeout(() => {
+        if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
+          window.grecaptcha.ready(function() {
+            // Importante: Asegurarse de que no haya ya un widget en ese elemento
+            // La verificación `children.length === 0` es clave aquí
+            const recaptchaElement = document.getElementById('reCaptcha');
+            if (recaptchaElement && recaptchaElement.children.length === 0) {
+              try {
+                window.grecaptcha.render('reCaptcha', {
+                  'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
+                  'callback': (token: string) => {
+                    setFormData(prev => ({ ...prev, recaptchaToken: token }));
+                  },
+                  'expired-callback': () => {
+                    setFormData(prev => ({ ...prev, recaptchaToken: null }));
+                  }
+                });
+              } catch (renderError) {
+                console.error("Error al renderizar reCAPTCHA:", renderError);
+                // Esto te dará más detalles si el problema es en la llamada a render()
+              }
+            } else if (recaptchaElement) {
+                console.warn("reCAPTCHA placeholder element is not empty, skipping render.", recaptchaElement.innerHTML);
+            } else {
+                console.error("reCAPTCHA placeholder element 'reCaptcha' not found.");
+            }
+          });
+        } else {
+            console.error("window.grecaptcha not available after script load.");
+        }
+      }, 100); // Pequeño retardo
+    };
+
+    return () => {
+      // Limpia el script y el widget si existe
+      if (window.grecaptcha) {
+        const widgetId = document.getElementById('reCaptcha')?.querySelector('iframe')?.id;
+        if (widgetId) {
+          try {
+            window.grecaptcha.reset(widgetId); // Intenta resetear si hay un widget
+          } catch (e) {
+            // No hacer nada si falla el reset (por ejemplo, si ya no existe)
+            console.error("Error al resetear reCAPTCHA:", e);
           }
-        });
+        }
       }
-    });
-  }
-}, []);
+      // Asegúrate de que el script se remueva limpiamente
+      if (document.body.contains(script)) {
+          document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
