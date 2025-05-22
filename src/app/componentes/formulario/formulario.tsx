@@ -9,13 +9,19 @@ declare global {
   interface Window {
     grecaptcha: {
       ready: (cb: () => void) => void;
-      render: (container: string | HTMLElement, parameters: any) => void;
+      render: (container: string | HTMLElement, parameters: Record<string, unknown>) => void;
     };
   }
 }
 
 export function Formulario({setBoton, setNombre, datos}: Formulario) {
-   const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState<{
+    'data[Client][first_name]': string;
+    'data[Client][last_name]': string;
+    'data[Client][cellphone]': string;
+    'data[Client][email]': string;
+    recaptchaToken: string | null;
+  }>({
     'data[Client][first_name]': '',
     'data[Client][last_name]': '',
     'data[Client][cellphone]': '',
@@ -37,7 +43,7 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
         window.grecaptcha.ready(function() {
           window.grecaptcha.render('reCaptcha', {
             'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
-            'callback': (token: any) => {
+            'callback': (token: string) => {
               setFormData(prev => ({ ...prev, recaptchaToken: token }));
             },
             'expired-callback': () => {
