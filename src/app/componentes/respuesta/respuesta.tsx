@@ -27,11 +27,11 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
                     <p>🎥 ¿Te gustaría que armemos una propuesta más personalizada y con ideas reales de proveedores, locaciones y estilos?</p>
                     <p>
                         Agenda una videollamada sin costo aquí ➡️
-                        <a href="https://calendly.com/tu-link-de-calendly" target="_blank" rel="noopener noreferrer">Calendly</a>
+                        <a href="https://calendly.com/bodashuatulco/presentacion-de-propuesta" target="_blank" rel="noopener noreferrer">Calendly</a>
                     </p>
                     <p>
                         También puedes escribirnos directo por WhatsApp ➡️
-                        <a href="https://wa.me/529999999999" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
+                        <a href="https://wa.me/529581306925" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
                     </p>
                 </section>
 
@@ -39,9 +39,9 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
                     <h3>Bonus</h3>
                     <p>
                         Mientras tanto, aquí tienes inspiración real de bodas organizadas por nuestro equipo:
-                        <a href="https://www.instagram.com/tu-link-de-instagram" target="_blank" rel="noopener noreferrer"> Instagram</a>
+                        <a href="https://www.instagram.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Instagram</a>
                         <span> | </span>
-                        <a href="https://www.instagram.com/tu-link-de-instagram" target="_blank" rel="noopener noreferrer"> Youtube</a>
+                        <a href="https://www.youtube.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Youtube</a>
                     </p>
                     
                     <button className="botonRepetir" onClick={reiniciar}>Repetir el formulario</button>

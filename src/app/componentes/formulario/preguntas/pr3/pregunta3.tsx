@@ -16,7 +16,7 @@ export function Pr3({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
 
                 <button onClick={() => manejarCambio("500", dispatch, "pr3", setIteracion)}>
                     <Image src="/Pregunta3/intimacondetalles.jpg" alt="Imagen visual de una boda" width={100} height={100} />
-                    <span>Intima con detalles</span>
+                    <span>Íntima con detalles</span>
                 </button>
 
                 <button onClick={() => manejarCambio("750", dispatch, "pr3", setIteracion)}>

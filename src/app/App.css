@@ -14,6 +14,7 @@
 .titulo {
   font-family: var(--font-rocknroll);
   font-size: 2.5em;
+  text-align: center;
 }
 
 .h2Inicio {

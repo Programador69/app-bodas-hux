@@ -16,7 +16,7 @@ export function Pr2({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
 
                 <button onClick={() => manejarCambio("6100", dispatch, "pr2", setIteracion)}>
                     <Image src="/Pregunta2/simbolica.jpg" alt="Imagen visual de una boda" width={100} height={100} />
-                    <span>Simbolíca</span>
+                    <span>Simbólica</span>
                 </button>
 
                 <button onClick={() => manejarCambio("5600", dispatch, "pr2", setIteracion)}>
