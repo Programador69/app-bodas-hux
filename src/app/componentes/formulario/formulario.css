@@ -37,3 +37,7 @@ input[type="submit"] {
     width: 80%;
     margin-left: 10%;
 }
+
+#reCaptcha {
+    margin-left: 15%;
+}

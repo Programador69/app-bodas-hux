@@ -1,8 +1,18 @@
 "use client";
 import "./formulario.css";
 import type { Formulario} from "../../utilidades/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { enviarDatos } from "@/app/actions";
+
+// Add grecaptcha to the Window type
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      render: (container: string | HTMLElement, parameters: any) => void;
+    };
+  }
+}
 
 export function Formulario({setBoton, setNombre, datos}: Formulario) {
    const [formData, setFormData] = useState({
@@ -10,8 +20,39 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
     'data[Client][last_name]': '',
     'data[Client][cellphone]': '',
     'data[Client][email]': '',
+    recaptchaToken: null,
   });
 
+  // Carga el script de reCAPTCHA
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Asegúrate de que reCAPTCHA se renderice cuando el script esté cargado
+    script.onload = () => {
+      if (window.grecaptcha) {
+        window.grecaptcha.ready(function() {
+          window.grecaptcha.render('reCaptcha', {
+            'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
+            'callback': (token: any) => {
+              setFormData(prev => ({ ...prev, recaptchaToken: token }));
+            },
+            'expired-callback': () => {
+              setFormData(prev => ({ ...prev, recaptchaToken: null }));
+            }
+          });
+        });
+      }
+    };
+
+    return () => {
+      // Limpia el script cuando el componente se desmonte
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,6 +64,12 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Valida si el token de reCAPTCHA existe
+    if (!formData.recaptchaToken) {
+      alert('Por favor, completa el reCAPTCHA.');
+      return;
+    }
 
     try {
       const action = e.currentTarget.action;
