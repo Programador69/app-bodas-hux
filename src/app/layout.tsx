@@ -22,7 +22,7 @@ const rocknroll = localFont({
 
 export const metadata: Metadata = {
   title: "Bodas Huatulco",
-  description: "Formulario sencillo para obtener cotizaciones de bodas en Huatulco",
+  description: "Calcula el sueño de tu boda con Bodas Huatulco",
 };
 
 export default function RootLayout({
