@@ -29,36 +29,57 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
     recaptchaToken: null,
   });
 
-  // Carga el script de reCAPTCHA
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://www.google.com/recaptcha/api.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+  // Carga el script de reCAPTCHA prueba uno
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.src = "https://www.google.com/recaptcha/api.js";
+  //   script.async = true;
+  //   script.defer = true;
+  //   document.body.appendChild(script);
 
-    // Asegúrate de que reCAPTCHA se renderice cuando el script esté cargado
-    script.onload = () => {
-      if (window.grecaptcha) {
-        window.grecaptcha.ready(function() {
-          window.grecaptcha.render('reCaptcha', {
-            'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
-            'callback': (token: string) => {
-              setFormData(prev => ({ ...prev, recaptchaToken: token }));
-            },
-            'expired-callback': () => {
-              setFormData(prev => ({ ...prev, recaptchaToken: null }));
-            }
-          });
+  //   // Asegúrate de que reCAPTCHA se renderice cuando el script esté cargado
+  //   script.onload = () => {
+  //     if (window.grecaptcha) {
+  //       window.grecaptcha.ready(function() {
+  //         window.grecaptcha.render('reCaptcha', {
+  //           'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
+  //           'callback': (token: string) => {
+  //             setFormData(prev => ({ ...prev, recaptchaToken: token }));
+  //           },
+  //           'expired-callback': () => {
+  //             setFormData(prev => ({ ...prev, recaptchaToken: null }));
+  //           }
+  //         });
+  //       });
+  //     }
+  //   };
+
+  //   return () => {
+  //     // Limpia el script cuando el componente se desmonte
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+  if (window.grecaptcha) {
+    window.grecaptcha.ready(function() {
+      // Si ya hay un reCAPTCHA renderizado, lo reseteamos o lo evitamos.
+      // Una forma de evitar doble renderizado si hay un problema:
+      const reCaptchaElement = document.getElementById('reCaptcha');
+      if (reCaptchaElement && reCaptchaElement.children.length === 0) {
+        window.grecaptcha.render('reCaptcha', {
+          'sitekey': '6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK',
+          'callback': (token: string) => {
+            setFormData(prev => ({ ...prev, recaptchaToken: token }));
+          },
+          'expired-callback': () => {
+            setFormData(prev => ({ ...prev, recaptchaToken: null }));
+          }
         });
       }
-    };
-
-    return () => {
-      // Limpia el script cuando el componente se desmonte
-      document.body.removeChild(script);
-    };
-  }, []);
+    });
+  }
+}, []);
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
