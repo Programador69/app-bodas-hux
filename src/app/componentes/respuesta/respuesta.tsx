@@ -1,7 +1,7 @@
 import "./respuesta.css";
 import type { Respuesta } from "../../utilidades/types";
+import { useTranslations } from "next-intl";
 
-// Pedir las url de los links de calendly, whatsapp, instagram y youtube a Marce
 
 export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: Respuesta) {
     const reiniciar = () => {
@@ -9,53 +9,55 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
         setIteracion(0);
     }
 
+    const t = useTranslations("resultado");
+
     return (
         <div className="respuesta">
-            <h1>¡Hola {nombre}!</h1>
-            <h2>Gracias por responder nuestro simulador ✨</h2>
+            <h1>¡{t("h1")} {nombre}!</h1>
+            <h2> {t("h2")} </h2>
 
-            <h3>Según las elecciones que hiciste, el rango estimado para organizar una boda como la que imaginas en Huatulco es de:</h3>
+            <h3> {t("h3")} </h3>
 
             <span> 🎯 ${cotizacion.toLocaleString("es-MX")} MXN</span>
 
-            <p className="despedida">Sabemos que cada boda es única, por eso esta cifra es solo un punto de partida. Nuestro equipo se especializa en crear bodas a la medida, cuidando cada detalle y respetando la inversión de cada pareja.</p>
+            <p className="despedida"> {t("p")} </p>
 
 
             <main>
                 <section>
-                    <h3>¿Qué sigue?</h3>
-                    <p>🎥 ¿Te gustaría que armemos una propuesta más personalizada y con ideas reales de proveedores, locaciones y estilos?</p>
+                    <h3> {t("h3-blanco")} </h3>
+                    <p> {t("p-blanco")} </p>
                     <p>
-                        Agenda una videollamada sin costo aquí ➡️
+                        {t("p2-blanco")}
                         <a href="https://calendly.com/bodashuatulco/presentacion-de-propuesta" target="_blank" rel="noopener noreferrer">Calendly</a>
                     </p>
                     <p>
-                        También puedes escribirnos directo por WhatsApp ➡️
+                        {t("p3-blanco")}
                         <a href="https://wa.me/529581306925" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
                     </p>
                 </section>
 
                 <section className="bonus">
-                    <h3>Bonus</h3>
+                    <h3> {t("h32-blanco")} </h3>
                     <p>
-                        Mientras tanto, aquí tienes inspiración real de bodas organizadas por nuestro equipo:
+                        {t("p4-blanco")}
                         <a href="https://www.instagram.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Instagram</a>
                         <span> | </span>
                         <a href="https://www.youtube.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Youtube</a>
                     </p>
                     
-                    <button className="botonRepetir" onClick={reiniciar}>Repetir el formulario</button>
+                    <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
                 </section>
             </main>
 
             <footer>
                 <h4>
-                    Gracias por confiar en Bodas Huatulco; estamos listas para ayudarte a dar este gran paso.
+                    {t("h4")}
                 </h4>
                 <p>
-                    Con cariño, Marce & el equipo de Bodas Huatulco.
+                    {t("p-footer")}
                 </p>
-                <span>🌴 Especialistas en bodas destino desde hace 16 años</span>
+                <span> {t("span-footer")} </span>
             </footer>
         </div>
     );

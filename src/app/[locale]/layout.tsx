@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import localFont from "next/font/local";
-// import Script from "next/script";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const montserrat = localFont({
-  src: "./fonts/Montserrat-Regular.ttf",
+  src: "../fonts/Montserrat-Regular.ttf",
   display: "swap",
   variable: "--font-montserrat",
 })
 
 const dancing = localFont({
-  src: "./fonts/DancingScript-VariableFont_wght.ttf",
+  src: "../fonts/DancingScript-VariableFont_wght.ttf",
   display: "swap",
   variable: "--font-dancing",
 })
 
 const rocknroll = localFont({
-  src: "./fonts/RocknRollOne-Regular.ttf",
+  src: "../fonts/RocknRollOne-Regular.ttf",
   display: "swap",
   variable: "--font-rocknroll",
 })
@@ -26,16 +28,25 @@ export const metadata: Metadata = {
   description: "Calcula el sueño de tu boda con Bodas Huatulco",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="es">
+    <html lang={locale}>
       <body className={`${montserrat.variable} ${dancing.variable} ${rocknroll.variable}`}>
-        {children}
-        {/* <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" /> */}
+        <NextIntlClientProvider>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

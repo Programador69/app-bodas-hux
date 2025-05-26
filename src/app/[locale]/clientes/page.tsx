@@ -1,7 +1,7 @@
 "use client";
 import "./page.css";
 import { useState, useEffect } from "react";
-import { validarClave, obtenerDatosBD } from "../actions";
+import { validarClave, obtenerDatosBD } from "../../actions";
 import { QueryResultRow } from "@vercel/postgres";
 
 export default function Clientes() {

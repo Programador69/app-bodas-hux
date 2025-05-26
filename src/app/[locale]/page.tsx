@@ -1,9 +1,10 @@
 "use client";
-import "./App.css";
+import "../App.css";
 import { useReducer, useState } from "react";
-import { reducer, cotizar } from "./actions";
-import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras } from "./componentes/formulario/preguntas";
-import { Respuesta, Formulario } from "./componentes";
+import { reducer, cotizar } from "../actions";
+import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras } from "../componentes/formulario/preguntas";
+import { Respuesta, Formulario } from "../componentes";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}});
@@ -19,7 +20,7 @@ export default function Home() {
       <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
       <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
       <Extras dispatch={dispatch} key={"extras"}/>,
-      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formualrioFinal"}/>
+      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formularioFinal"}/>
     ];
 
     const handleClickCotizar = () => {
@@ -27,6 +28,9 @@ export default function Home() {
         setCotizacion(cotizacion);
         setIteracion(it => it + 1);
     }
+
+    const t = useTranslations("inicio");
+    const seis = useTranslations("pr6");
 
     return (
         <>
@@ -37,9 +41,9 @@ export default function Home() {
                 {
                   iteracion == 0 ? (
                     <>
-                      <h1 className="titulo">Calcula el sueño de tu boda</h1>
-                      <h2 className="h2Inicio">Tu boda, Tu estilo, Tu inversión.</h2>
-                      <h3 className="h3Inicio">Descubre en solo 2 minutos cuál sería la inversión de la boda que imaginas en el paraíso Huatulco</h3>
+                      <h1 className="titulo"> {t("h1")} </h1>
+                      <h2 className="h2Inicio"> {t("h2")} </h2>
+                      <h3 className="h3Inicio"> {t("h3")} </h3>
                     </>
                   ) : (
                     <>
@@ -55,7 +59,7 @@ export default function Home() {
                                 iteracion == 5 ? (
                                     <>
                                         {arrayPreguntas[iteracion]}
-                                        <button className="botonCotizar" onClick={handleClickCotizar}>Cotizar</button>
+                                        <button className="botonCotizar" onClick={handleClickCotizar}> {seis("boton")} </button>
                                     </>
                                 ) : (
                                   <>
@@ -67,7 +71,7 @@ export default function Home() {
                     </main>
 
                     <footer>
-                          <h4>Todos los derechos resevados</h4>
+                          <h4> {t("pie")} </h4>
                     </footer>
                 </>
             )

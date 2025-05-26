@@ -29,3 +29,11 @@ export type Formulario = {
     setNombre: React.Dispatch<React.SetStateAction<string>>;
     datos: Estado;
 }
+
+export type EstadoFormulario = {    
+    'data[Client][first_name]': string;
+    'data[Client][last_name]': string;
+    'data[Client][cellphone]': string;
+    'data[Client][email]': string;
+    recaptchaToken: string | null;
+}
