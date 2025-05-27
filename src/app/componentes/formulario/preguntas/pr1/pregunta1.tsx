@@ -15,6 +15,10 @@ export function Pr1({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
     return (
         <article className="articlePr1">
             {/* <h3>¿Cuántos invitados planeas tener?</h3> */}
+            <h3 className="tituloPregunta">
+                {t("pr")}
+            </h3>
+
             <div className="imagenes">
                 <button onClick={() => manejarCambio("11000", dispatch, "pr1", setIteracion)}>
                     <Image src="/Pregunta1/solo2.jpg" alt="Imagen visual de una boda" width={100} height={100}/>

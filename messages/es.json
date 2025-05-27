@@ -3,6 +3,7 @@
         "h1": "Calcula el sueño de tu boda",
         "h2": "Tu boda, Tu estilo, Tu inversión.",
         "h3": "Descubre en solo 2 minutos cuál sería la inversión de la boda que imaginas en el paraíso Huatulco",
+        "pr": "¿Cuántos Invitados planeas tener?",
         "op1": "Solo nosotros 2",
         "op2": "Menos de 15 invitados",
         "op3": "21 a 50 invitados",
@@ -12,6 +13,7 @@
         "pie": "Todos los derechos reservados"
     },
     "pr2": {
+        "pr": "¿Qué tipo de ceremonia deseas?",
         "op1": "Sin ceremonia",
         "op2": "Simbólica",
         "op3": "Religiosa",
@@ -21,6 +23,7 @@
         "pie": "Todos los derechos reservados"
     },
     "pr3": {
+        "pr": "¿Cómo imaginas la decoración de tu boda?",
         "op1": "Sencilla y natural",
         "op2": "Íntima con detalles",
         "op3": "Tropical con estilo",
@@ -30,6 +33,7 @@
         "pie": "Todos los derechos reservados"
     },
     "pr4": {
+        "pr": "¿Qué Música Requieres?",
         "op1": "Solo algo de fondo (Música tranquila durante la ceremonia y el cóctel)",
         "op2": "Un momento especial (Algún músico o cantante en vivo para la ceremonia o el primer baile)",
         "op3": "Dj para ambientar (Quiero que la fiesta tenga buena energía, pero sin algo demasiado elaborado)",
@@ -39,6 +43,7 @@
         "pie": "Todos los derechos reservados"
     },
     "pr5": {
+        "pr": "¿Qué tipo de Menú buscarías?",
         "op1": "Solo canapes y bocadillos",
         "op2": "Taquiza o comida típica mexicana",
         "op3": "Menu de 3 tiempos",
@@ -48,6 +53,7 @@
         "pie": "Todos los derechos reservados"
     },
     "pr6": {
+        "pr": "Servicios Extras",
         "op1": "Foto",
         "op2": "Video",
         "op3": "Maquillaje",

@@ -11,6 +11,10 @@ export function Pr5({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
     return (
         <article className="articlePr5">
             {/* <h3>¿Qué tipo de menú buscas?</h3> */}
+            <h1 className="tituloPregunta">
+                {t("pr")}
+            </h1>
+            
             <div className="imagenes">
                 <button onClick={() => manejarCambio("1040", dispatch, "pr5", setIteracion)}>
                     <Image src="/Pregunta5/canapesybocadillos.jpg" alt="Imagen visual de una boda" width={100} height={100} />

@@ -17,6 +17,10 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
     return (
         <article className="articleExtras">
             {/* <h3>Servicios Extras</h3> */}
+            <h1 className="tituloPregunta">
+                {t("pr")}
+            </h1>
+            
             <ul className="contenedor">
                 <li>
                     <label>

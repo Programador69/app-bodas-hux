@@ -11,6 +11,10 @@ export function Pr3({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
     return (
         <article className="articlePr3">
             {/* <h3>¿Comó imaginas la decoración de tu boda?</h3> */}
+            <h1 className="tituloPregunta">
+                {t("pr")}
+            </h1>
+            
             <div className="imagenes">
                 <button onClick={() => manejarCambio("330", dispatch, "pr3", setIteracion)}>
                     <Image src="/Pregunta3/sencillaynatural.jpg" alt="Imagen visual de una boda" width={100} height={100} />

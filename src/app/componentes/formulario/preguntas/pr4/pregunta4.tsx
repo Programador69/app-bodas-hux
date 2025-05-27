@@ -10,6 +10,10 @@ export function Pr4({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
     return (
         <article className="articlePr4">
             {/* <h3>¿Qué musica requieres?</h3> */}
+            <h1 className="tituloPregunta">
+                {t("pr")}
+            </h1>
+            
             <div className="imagenes">
                 <button onClick={() => manejarCambio("12500", dispatch, "pr4", setIteracion)}>
                     <span> {t("op1")} </span>

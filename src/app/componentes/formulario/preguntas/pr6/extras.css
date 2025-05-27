@@ -27,7 +27,7 @@
 
 .articleExtras {
     background-color: #fff;
-    background-image: url("/6.png");
+    background-image: url("/6.jpeg");
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 10px;
@@ -36,4 +36,9 @@
 .articleExtras .contenedor {
     padding-top: 150px;
     padding-bottom: 30px;
+}
+
+.articleExtras .tituloPregunta {
+    left: 38%;
+    top: 5%;
 }
