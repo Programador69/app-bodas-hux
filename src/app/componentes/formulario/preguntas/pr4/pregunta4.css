@@ -12,7 +12,7 @@
 }
 
 .articlePr4 .imagenes button {
-    height: 150px;
+    height: 200px;
     text-align: center;
     color: #eee;
     background-color: #1c3f7b;
@@ -22,5 +22,5 @@
 
 .articlePr4 .tituloPregunta {
     left: 38%;
-    top: 5%;
+    /* top: 5%; */
 }

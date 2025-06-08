@@ -1,9 +1,9 @@
 {
     "inicio": {
-        "h1": "Calculate your dream wedding",
+        "h1": "Calculate your dream weddings",
         "h2": "Your Wedding, Your Style, Your Investment.",
-        "h3": "Discover in just 2 minutes what the investment for the wedding you envision in paradise Huatulco would be",
-        "pr": "How many guests do you plan to have?",
+        "h3": "In just 2 minutes, get a real estimate for the wedding you've been picturing - no stress, no clichés.",
+        "pr": "How many guests are you envisioning for your special day?",
         "op1": "Just the 2 of us",
         "op2": "Less than 15 guests",
         "op3": "21 to 50 guests",
@@ -13,7 +13,7 @@
         "pie": "All rights reserved"
     },
     "pr2": {
-        "pr": "What type of ceremony do you wish for?",
+        "pr": "What kind of ceremony are you dreaming of?",
         "op1": "No ceremony",
         "op2": "Symbolic",
         "op3": "Religious",
@@ -23,7 +23,7 @@
         "pie": "All rights reserved"
     },
     "pr3": {
-        "pr": "How do you imagine your wedding decoration?",
+        "pr": "How do you envision your wedding décor?",
         "op1": "Simple and natural",
         "op2": "Intimate with details",
         "op3": "Tropical with style",
@@ -33,27 +33,27 @@
         "pie": "All rights reserved"
     },
     "pr4": {
-        "pr": "What Music Do You Require?",
-        "op1": "Just some background music (Quiet music during the ceremony and cocktail hour)",
-        "op2": "A special moment (A live musician or singer for the ceremony or first dance)",
-        "op3": "DJ for ambiance (I want the party to have good energy, but nothing too elaborate)",
-        "op4": "Live music (A band, versatile group, or mariachi to liven up the event)",
-        "op5": "Total party (DJ + special effects, lights, illuminated dance floor, etc. To have a big party)",
-        "op6": "Complete experience (live music for ceremony/cocktail, DJ/band for the party, with professional ambiance and production)",
+        "pr": "What kind of music experience do you dream of for your wedding?",
+        "op1": "🎶 Just background - soft music during the ceremony and cocktail, nothing too loud.",
+        "op2": "💖 One special moment - live musician or singer for your ceremony or first dance.",
+        "op3": "🎧 DJ energy - fun, modern party atmosphere without going over the top.",
+        "op4": "🎺 Live performance - mariachi, band or acoustic set to light up the celebration.",
+        "op5": "🎺 Full party mode - DJ with lights, effects and a glowing dance floor.",
+        "op6": "🌟 Complete experience - live music for key moments + full DJ/band and professional production.",
         "pie": "All rights reserved"
     },
     "pr5": {
-        "pr": "What type of Menu would you be looking for?",
-        "op1": "Canapés and snacks only",
-        "op2": "Taquiza or traditional Mexican food",
-        "op3": "3-course menu",
-        "op4": "Varied buffet",
-        "op5": "Gourmet banquet",
-        "op6": "Personalized culinary experience",
+        "pr": "What kind of dining experience would you like for your wedding?",
+        "op1": "Just light bites",
+        "op2": "🌮 taquiza or authentic Mexican food.",
+        "op3": "🍽️ Elegant 3-course menu.",
+        "op4": "🍴 Varied buffet ",
+        "op5": "🥂 Gourmet banquet ",
+        "op6": "👩‍🍳 Tailored culinary experience",
         "pie": "All rights reserved"
     },
     "pr6": {
-        "pr": "Extra Services",
+        "pr": "Which extra services would make your wedding even more magical?",
         "op1": "Photo",
         "op2": "Video",
         "op3": "Makeup",
@@ -63,8 +63,8 @@
         "pie": "All rights reserved"
     },
     "formulario": {
-        "h1": "Ready to see your dream turn into an investment?",
-        "h2": "Leave us your details and we will show you the personalized estimate for the wedding you envision in Huatulco. This is just the first step to making it a reality. ✨ 🌴 💍",
+        "h1": "Ready to turn your dream wedding into a clear investment plan?",
+        "h2": "Leave your details below and get a personalized estimate for the wedding you've been imagining in Huatulco. This is just the beginning of making it real — with heart, style, and zero stress.",
         "nombre": "First Name(s)",
         "apellido": "Last Name(s)",
         "celular": "Cell Phone",
@@ -76,17 +76,17 @@
         "h1": "Hello",
         "h2": "Thank you for using our simulator ✨",
         "h3": "Based on your selections, the estimated range to organize a wedding like the one you envision in Huatulco is:",
-        "p": "We know that every wedding is unique, so this figure is just a starting point. Our team specializes in creating tailor-made weddings, taking care of every detail and respecting each couple's investment.",
-        "h3-blanco": "What's next?",
-        "p-blanco": "🎥 Would you like us to put together a more personalized proposal with real ideas for vendors, locations, and styles?",
-        "p2-blanco": "Schedule a free video call here ➡️",
-        "p3-blanco": "You can also write to us directly via WhatsApp ➡️",
-        "h32-blanco": "Bonus",
-        "p4-blanco": "Meanwhile, here's real inspiration from weddings organized by our team:",
-        "boton": "Repeat form",
-        "h4": "Thank you for trusting Bodas Huatulco; we are ready to help you take this big step.",
-        "p-footer": "With love, Marce & the Bodas Huatulco team.",
-        "span-footer": "🌴 Destination wedding specialists for 16 years",
+        "p": "💬 We believe every wedding is one-of-a-kind — and so are you. This estimate is just the beginning. Our expert team crafts fully personalized weddings that honor your vision, your culture, and your investment, taking care of every detail so you can simply enjoy the journey.",
+        "h3-blanco": "✨ What's next?",
+        "p-blanco": "🎥 Would you like us to create a personalized proposal with real vendor options, stunning locations, and styles tailored just for you and your love story?",
+        "p2-blanco": "Schedule a free video call to talk about your vision  ➡️",
+        "p3-blanco": "💬 Prefer to chat? Send us a message on WhatsApp  ➡️",
+        "h32-blanco": "Bonus while you wait:",
+        "p4-blanco": "Get inspired by real weddings we've created: ",
+        "boton": "Start again",
+        "h4": "Thank you for trusting Bodas Huatulco.",
+        "p-footer": "We're here to help you take this beautiful step — with love, care, and 16 years of destination wedding experience.",
+        "span-footer": "With love, Marce & the Bodas Huatulco team 🌴",
         "pie": "All rights reserved"
     }
 }

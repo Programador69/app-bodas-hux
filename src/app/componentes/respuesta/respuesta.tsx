@@ -45,8 +45,16 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
                         <span> | </span>
                         <a href="https://www.youtube.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Youtube</a>
                     </p>
+
+                    {
+                        t("boton") == "Start again" ? (
+                            <>
+                                <p>🔁 Want to explore other options? </p>
+                                <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
+                            </>
+                        ) : <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
+                    }
                     
-                    <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
                 </section>
             </main>
 
