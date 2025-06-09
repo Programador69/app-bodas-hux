@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import {FacebookPixel } from "../componentes";
 
 const montserrat = localFont({
   src: "../fonts/Montserrat-Regular.ttf",
@@ -45,6 +46,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={`${montserrat.variable} ${dancing.variable} ${rocknroll.variable}`}>
         <NextIntlClientProvider>
+          {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && <FacebookPixel />}
           {children}
         </NextIntlClientProvider>
       </body>

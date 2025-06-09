@@ -5,8 +5,6 @@ import { reducer, cotizar } from "../actions";
 import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras } from "../componentes/formulario/preguntas";
 import { Respuesta, Formulario } from "../componentes";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}});
@@ -36,38 +34,6 @@ export default function Home() {
 
     return (
         <>
-  <Head>
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          !function(f,b,e,v,n,t,s){
-            if(f.fbq)return;n=f.fbq=function(){
-              n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
-            };
-            if(!f._fbq)f._fbq=n;
-            n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];
-            t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)
-          }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1221182429791217');
-          fbq('track', 'PageView');
-        `,
-      }}
-    />
-    <noscript>
-      <Image
-        height="1"
-        width="1"
-        style={{ display: "none" }}
-        src="https://www.facebook.com/tr?id=1221182429791217&ev=PageView&noscript=1"
-        alt=""
-      />
-    </noscript>
-  </Head>
-
-
         {
             botonClickeado ? <Respuesta cotizacion={cotizacion} boton={setBotonClickeado} setIteracion={setIteracion} nombre={nombre} /> : (
                 <>
