@@ -10,6 +10,7 @@ import { useEffect } from "react";
 export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: Respuesta) {
     const reiniciar = () => {
         boton(false);
+        router.push("/");
         setIteracion(0);
     }
 
