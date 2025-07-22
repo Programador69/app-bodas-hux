@@ -1,6 +1,10 @@
+"use client";
+
 import "./respuesta.css";
 import type { Respuesta } from "../../utilidades/types";
 import { useTranslations } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 
 export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: Respuesta) {
@@ -8,6 +12,15 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
         boton(false);
         setIteracion(0);
     }
+
+    const router = useRouter();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const nuevaUrl = `${pathname}?/gracias`;
+
+        router.replace(nuevaUrl);
+    },[router, pathname]);
 
     const t = useTranslations("resultado");
 
