@@ -22,6 +22,8 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
     'data[Client][last_name]': '',
     'data[Client][cellphone]': '',
     'data[Client][email]': '',
+    fechaBoda: '',
+    nombrePareja: '',
     recaptchaToken: null,
   });
 
@@ -166,7 +168,7 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
             name="data[Client][cellphone]"
             className="form-control"
             placeholder={t("celular")}
-            type="text"
+            type="number"
             id="ClientCellphone"
             required
           />
@@ -181,6 +183,31 @@ export function Formulario({setBoton, setNombre, datos}: Formulario) {
             placeholder={t("email")}
             type="email"
             id="ClientEmail"
+            required
+          />
+        </div>
+        <div className="form-group" id="divFechaBoda">
+          <label htmlFor="DiaBoda">{t("fecha")}:</label>
+          <input
+            value={formData['fechaBoda']}
+            onChange={(e) => handleChange(e)}
+            name="fechaBoda"
+            className="form-control"
+            type="date"
+            id="DiaBoda"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="NombrePareja"></label>
+          <input
+            value={formData['nombrePareja']}
+            onChange={(e) => handleChange(e)}
+            name="nombrePareja"
+            className="form-control"
+            type="text"
+            placeholder={t("nombre-pareja")}
+            id="NombrePareja"
             required
           />
         </div>

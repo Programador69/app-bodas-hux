@@ -69,6 +69,8 @@
         "apellido": "Last Name(s)",
         "celular": "Cell Phone",
         "email": "Email",
+        "fecha": "Wedding date",
+        "nombre-pareja": "Name of the couple in love",
         "boton": "Magic number",
         "pie": "All rights reserved"
     },

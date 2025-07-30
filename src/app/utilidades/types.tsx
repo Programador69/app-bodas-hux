@@ -35,5 +35,7 @@ export type EstadoFormulario = {
     'data[Client][last_name]': string;
     'data[Client][cellphone]': string;
     'data[Client][email]': string;
+    fechaBoda: string;
+    nombrePareja: string;
     recaptchaToken: string | null;
 }

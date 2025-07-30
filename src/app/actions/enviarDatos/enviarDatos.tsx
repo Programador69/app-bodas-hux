@@ -8,6 +8,8 @@ type FormData = {
     'data[Client][last_name]': string;
     'data[Client][cellphone]': string;
     'data[Client][email]': string;
+    fechaBoda: string;
+    nombrePareja: string;
 }
 
 export async function enviarDatos({action, method, formData, datos}: {action: string, method: string, formData: FormData, datos: Estado}) {

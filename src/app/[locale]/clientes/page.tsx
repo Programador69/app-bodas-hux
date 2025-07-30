@@ -49,11 +49,12 @@ export default function Clientes() {
                         <div className="contenedorClientes">
                             <h1>Resultados de la cotización</h1>
                             <ul>
-                                <li>Nombre</li>
+                                <li>Nombre(s)</li>
                                 <li>Apellido</li>
                                 <li>Celular</li>
                                 <li>Correo</li>
                                 <li>Cotización</li>
+                                <li>Boda</li>
                                 <li>Desgloce</li>
                             </ul>
                             {
@@ -61,11 +62,12 @@ export default function Clientes() {
                                 // y los mostraremos en una tabla
                                 informacion.map((item) => (
                                     <ul key={item.is}>
-                                        <li>{item.nombre}</li>
+                                        <li>{item.nombre}; {item.nombrepareja}</li>
                                         <li>{item.apellido}</li>
                                         <li>{item.celular}</li>
                                         <li>{item.correo}</li>
                                         <li>${parseInt(item.cotizacion).toLocaleString("es-MX")}</li>
+                                        <li>{item.fechaboda}</li>
                                         <ul className="ulDesgloce">
                                             <li><span>Invitados:</span> {item.invitados}</li>
                                             <li><span>Ceremonia:</span> {item.ceremonia}</li>

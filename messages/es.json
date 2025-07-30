@@ -69,6 +69,8 @@
         "apellido": "Apellidos",
         "celular": "Celular",
         "email": "Email",
+        "fecha": "Fecha de la boda",
+        "nombre-pareja": "Nombre de la pareja",
         "boton": "Número mágico",
         "pie": "Todos los derechos reservados"
     },
