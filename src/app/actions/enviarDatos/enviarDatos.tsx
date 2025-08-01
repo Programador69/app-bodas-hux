@@ -34,6 +34,13 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
         console.log('Datos registrados con éxito');
     }
 
+    const fecha = new Date();
+    const dia = fecha.getDate();
+    const mes = fecha.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const ano = fecha.getFullYear();
+
+    const diaCorto = `${ano} - ${mes} - ${dia}`;
+
     const dataFinal = {
         ...formData,
         'invitados': respuestaInvitados,
@@ -43,6 +50,7 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
         'menu': respuestaMenu,
         'extras': respuestaExtras,
         "cotizacion" : datos.cotizacion || 0,
+        "fechaRegistro" : diaCorto,
     }
 
     // console.log('Datos enviados:', dataFinal);

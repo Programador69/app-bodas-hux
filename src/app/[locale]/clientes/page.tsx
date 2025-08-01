@@ -56,6 +56,7 @@ export default function Clientes() {
                                 <li>Cotización</li>
                                 <li>Boda</li>
                                 <li>Desgloce</li>
+                                <li>Fecha Registro</li>
                             </ul>
                             {
                                 // Aqui haremos un ul con los datos de la base de datos
@@ -76,6 +77,7 @@ export default function Clientes() {
                                             <li><span>Menú:</span> {item.menu}</li>
                                             <li><span>Extras:</span> {item.extras}</li>
                                         </ul>
+                                        <li>{item.fecharegistro}</li>
                             </ul>
                                 ))
                             }

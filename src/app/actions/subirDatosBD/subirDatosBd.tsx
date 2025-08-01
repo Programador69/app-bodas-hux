@@ -17,6 +17,7 @@ type Datos = {
     'data[Client][email]': string;
     fechaBoda: string;
     nombrePareja: string;
+    fechaRegistro: string;
 }
 
 export async function subirDatosBD(datos: Datos) {
@@ -29,7 +30,7 @@ export async function subirDatosBD(datos: Datos) {
             throw new Error("La conexión a la base de datos no está inicializada")
         }
 
-        await pool.sql`INSERT INTO clientes (nombre, apellido, celular, correo, cotizacion, invitados, ceremonia, decoracion, musica, menu, extras, fechaBoda, nombrePareja) VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja})`;
+        await pool.sql`INSERT INTO clientes (nombre, apellido, celular, correo, cotizacion, invitados, ceremonia, decoracion, musica, menu, extras, fechaBoda, nombrePareja, fechaRegistro) VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja}, ${datos.fechaRegistro})`;
         await pool.end()
 
         console.log('Datos registrados con éxito');
