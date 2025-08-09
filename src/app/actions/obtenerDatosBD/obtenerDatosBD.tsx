@@ -11,7 +11,7 @@ export async function obtenerDatosBD()  {
             throw new Error("La conexión a la base de datos no está inicializada")
         }
 
-        const { rows } = await pool.sql`SELECT * FROM clientes`;
+        const { rows } = await pool.sql`SELECT * FROM clientes GROUP BY fecharegistro DESC`;
         await pool.end()
 
         return rows;
