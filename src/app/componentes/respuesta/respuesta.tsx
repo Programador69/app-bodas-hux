@@ -35,6 +35,7 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
             <span> 🎯 ${cotizacion.toLocaleString("es-MX")} MXN</span>
 
             <p className="despedida"> {t("p")} </p>
+<p className="despedida"> {t("p-imp")} </p>
 
 
             <main>
