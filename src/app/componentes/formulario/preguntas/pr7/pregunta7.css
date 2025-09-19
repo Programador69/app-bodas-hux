@@ -4,23 +4,23 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
+    height: 500px;
 }
 
 .articlePr7 h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding: 0 20px;
     color: #000;
     text-align: center;
-    margin-top: 40%;
 }
 
 .preguntaPresupuesto {
-    height: 200px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
+    justify-content: end;
 }
 
 .preguntaPresupuesto button {
@@ -38,4 +38,11 @@
     background-color: #1c3f7b;
     color: #fff;
     transform: scale(1.2);
+}
+
+@media screen and (min-width: 425px ) {
+    .preguntaPresupuesto {
+        height: 420px;
+    }
+    
 }

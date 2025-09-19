@@ -15,13 +15,13 @@ export function Pr7({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
             <h1 className="tituloPregunta">
                 {t("pr")}
             </h1>
-
-            <h2>
-                {t("sub")}
-            </h2>
                 
             <div className="preguntaPresupuesto">
                 <input type="number" value={presupuesto} placeholder={t("input")} onChange={(e) => setPresupuesto(e.target.value)} />
+
+                <h2>
+                    {t("sub")}
+                </h2>
 
                 <button onClick={() => manejarCambio(presupuesto, dispatch, "pr7", setIteracion)}> {t("boton")} </button>
     
