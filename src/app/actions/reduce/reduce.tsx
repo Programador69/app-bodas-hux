@@ -17,6 +17,8 @@ export function reducer(state: Estado, action: Action) {
                 throw new Error("Payload is required for 'extras' action.");
             }
             return { ...state, extras: { suma: action.payload.suma, opciones: action.payload.opciones } };
+        case 'pr7':
+            return {...state, pr7: action.value }
         default:
             throw new Error();
     }

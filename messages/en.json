@@ -62,6 +62,13 @@
         "boton": "Quote",
         "pie": "All rights reserved"
     },
+    "pr7": {
+      "pr": "Now that you've answered the questions... before I show you your magic number, tell me: How much are you willing to invest in the wedding of your dreams?",
+      "sub": "There are no right or wrong answers, this figure helps us give you a more realistic result",
+      "input": "The amount is in MXN",
+      "boton": "Accept",
+      "pie": "All rights reserved"
+    },
     "formulario": {
         "h1": "Ready to turn your dream wedding into a clear investment plan?",
         "h2": "Leave your details below and get a personalized estimate for the wedding you've been imagining in Huatulco. This is just the beginning of making it real — with heart, style, and zero stress.",

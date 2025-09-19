@@ -62,6 +62,13 @@
         "boton": "Cotizar",
         "pie": "Todos los derechos reservados"
     },
+    "pr7": {
+        "pr": "Ahora que respondiste las preguntas... antes de mostrarte tu número mágico, dime: ¿Cuánto estas dispuest@ a invertir en el sueño de tu boda?",
+        "sub": "No hay respuestas correctas o incorrectas, esta cifra nos ayuda a darte un resultado más realista",
+        "input": "El monto es en MXN",
+        "boton": "Aceptar",
+        "pie": "Todos los derechos reservados"
+    },
     "formulario": {
         "h1": "¿List@s para ver tu sueño convertido en inversión?",
         "h2": "Déjanos tus datos y te mostraremos el estimado perzonalizado para la boda que imaginas en Huatulco. Este es solo el primer paso para hacerla realidad. ✨ 🌴 💍",

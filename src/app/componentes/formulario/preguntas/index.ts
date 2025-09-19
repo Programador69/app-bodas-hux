@@ -4,3 +4,4 @@ export * from './pr3/pregunta3';
 export * from './pr4/pregunta4';
 export * from './pr5/pregunta5';
 export * from './pr6/extras';
+export * from './pr7/pregunta7';

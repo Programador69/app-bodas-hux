@@ -2,12 +2,12 @@
 import "../App.css";
 import { useReducer, useState } from "react";
 import { reducer, cotizar } from "../actions";
-import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras } from "../componentes/formulario/preguntas";
+import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras, Pr7 } from "../componentes/formulario/preguntas";
 import { Respuesta, Formulario } from "../componentes";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}});
+  const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}, pr7: 0});
     const [botonClickeado, setBotonClickeado] = useState(false);
     const [cotizacion, setCotizacion] = useState(0);
     const [iteracion, setIteracion] = useState(0);
@@ -20,6 +20,7 @@ export default function Home() {
       <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
       <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
       <Extras dispatch={dispatch} key={"extras"}/>,
+      <Pr7 dispatch={dispatch} setIteracion={setIteracion} key={"pr7"}/>,
       <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formularioFinal"}/>
     ];
 

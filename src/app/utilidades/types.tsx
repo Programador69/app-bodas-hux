@@ -14,6 +14,7 @@ export type Estado = {
     pr4: number;
     pr5: number;
     extras: {suma: number, opciones: string};
+    pr7: number;
     cotizacion?: number;
 }
 

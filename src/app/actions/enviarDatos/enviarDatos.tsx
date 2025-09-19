@@ -19,7 +19,7 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
     const respuestaDecoracion = datos.pr3 == 330 ? "Sencilla y Natural" : datos.pr3 == 500 ? "Intima con Detalles" : datos.pr3 == 750 ? "Tropical con estilo" : datos.pr3 == 950 ? "Elegante con diseño" : datos.pr3 == 1200 ? "Producción Completa" : datos.pr3 == 1900 ? "WOW TOTAL" : "n/a";
     const respuestaMusica = datos.pr4 == 12500 ? "Solo Algo de fondo" : datos.pr4 == 24500 ? "Un momento especial" : datos.pr4 == 32000 ? "Dj para Ambientar" : datos.pr4 == 82000 ? "Música en Vivo" : datos.pr4 == 43100 ? "Fiesta Total" : datos.pr4 == 150000 ? "Experiencia musical completa" : "n/a";
     const respuestaMenu = datos.pr5 == 1040 ? "Solo canapes y bocadillos" : datos.pr5 == 935 ? "Taquiza o comida típica mexicana" : datos.pr5 == 1485 ? "Menu de 3 tiempos" : datos.pr5 == 1595 ? "Buffet variado" : datos.pr5 == 1810 ? "Banquete gourmet" : datos.pr5 == 2530 ? "Experiencia culinaria personalizada" : "n/a";
-    const respuestaExtras = datos.extras.opciones;
+    const respuestaExtras = `${datos.extras.opciones}, Presupuesto maximo: ${datos.pr7}`;
 
     // Mandar la solicitud al CRM original
     const res = await fetch(action, {
