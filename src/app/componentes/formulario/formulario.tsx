@@ -107,11 +107,12 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
       </div>
       <div className="form-group" id="divFechaBoda">
         <label htmlFor="DiaBoda">{t("fecha")}:</label>
-        <input name="data[Client][fecha_de_la_boda]" className="form-control" type="date" id="DiaBoda" value={formData["fechaBoda"]}
+        <input name="fechaBoda" className="form-control" type="date" id="DiaBoda" value={formData["fechaBoda"]}
             onChange={handleChange} required/>
       </div>
       <div className="form-group">
-        <input name="data[Client][nombre_de_la_pareja]" className="form-control" placeholder="Nombre de la pareja" type="text" id="ClientNombreDeLaPareja"/>
+        <input name="nombrePareja" className="form-control" placeholder="Nombre de la pareja" type="text" id="ClientNombreDeLaPareja"  value={formData["nombrePareja"]}
+            onChange={handleChange} required/>
       </div>
 
       <div className="form-group center-block" id="reCaptcha">
