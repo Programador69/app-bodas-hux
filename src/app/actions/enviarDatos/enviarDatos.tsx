@@ -1,15 +1,35 @@
 "use server";
 
-import { Estado } from "@/app/utilidades/types";
+import { Estado, EstadoFormulario } from "@/app/utilidades/types";
 import { subirDatosBD } from "../index";
+
+type PropsEnviar = {
+    action: string;
+    method: string;
+    formData: EstadoFormulario;
+    datos: Estado;
+};
 
 type FormData = {
     'data[Client][first_name]': string;
     'data[Client][last_name]': string;
     'data[Client][cellphone]': string;
     'data[Client][email]': string;
-    fechaBoda: string;
-    nombrePareja: string;
+    'data[Client][fecha_de_la_boda]': string;
+    'data[Client][nombre_de_la_pareja]': string;
+    recaptchaToken: string | null;
+};
+
+
+function encodeForm(data: Record<string, string>) {
+    return Object.keys(data)
+    .map(
+    (key) =>
+        encodeURIComponent(key) +
+        "=" +
+        encodeURIComponent(data[key] ?? "")
+    )
+    .join("&");
 }
 
 export async function enviarDatos({action, method, formData, datos}: {action: string, method: string, formData: FormData, datos: Estado}) {
@@ -21,17 +41,33 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
     const respuestaMenu = datos.pr5 == 1040 ? "Solo canapes y bocadillos" : datos.pr5 == 935 ? "Taquiza o comida típica mexicana" : datos.pr5 == 1485 ? "Menu de 3 tiempos" : datos.pr5 == 1595 ? "Buffet variado" : datos.pr5 == 1810 ? "Banquete gourmet" : datos.pr5 == 2530 ? "Experiencia culinaria personalizada" : "n/a";
     const respuestaExtras = `${datos.extras.opciones}, Presupuesto maximo: ${datos.pr7}`;
 
-    // Mandar la solicitud al CRM original
-    const res = await fetch(action, {
-        method: method,
-        body: formData.toString(), // Si espera JSON cambiar a -> JSON.stringify(formData)
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    });
 
-    if (res.ok) {
-        console.log('Datos registrados con éxito');
+    const datosCRM: Record<string, string> = {
+        "data[Client][first_name]": formData["data[Client][first_name]"],
+        "data[Client][last_name]": formData["data[Client][last_name]"],
+        "data[Client][cellphone]": formData["data[Client][cellphone]"],
+        "data[Client][email]": formData["data[Client][email]"],
+        "data[Client][fecha_de_la_boda]": formData["data[Client][fecha_de_la_boda]"],
+        "data[Client][nombre_de_la_pareja]": formData["data[Client][nombre_de_la_pareja]"],
+        "data[Client][presupuesto_budget]": (datos.cotizacion || 0).toString(),
+        "g-recaptcha-response": formData.recaptchaToken ?? ""
+    };
+
+
+    const bodyEncoded = encodeForm(datosCRM);
+
+    const res = await fetch(action, {
+      method,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: bodyEncoded,
+    });
+  
+    if (!res.ok) {
+      console.error("Error al enviar datos a IncrementaCRM");
+    } else {
+      console.log("Datos enviados al IncrementaCRM");
     }
 
     const fecha = new Date();
@@ -43,6 +79,8 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
 
     const dataFinal = {
         ...formData,
+        fechaBoda: formData["data[Client][fecha_de_la_boda]"],
+        nombrePareja: formData["data[Client][nombre_de_la_pareja]"],
         'invitados': respuestaInvitados,
         'ceremonia': respuestaCeremonia,
         'decoracion': respuestaDecoracion,
