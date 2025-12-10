@@ -17,7 +17,6 @@ type FormData = {
     'data[Client][email]': string;
     'data[Client][fecha_de_la_boda]': string;
     'data[Client][nombre_de_la_pareja]': string;
-    recaptchaToken: string | null;
 };
 
 
@@ -49,8 +48,7 @@ export async function enviarDatos({action, method, formData, datos}: {action: st
         "data[Client][email]": formData["data[Client][email]"],
         "data[Client][fecha_de_la_boda]": formData["data[Client][fecha_de_la_boda]"],
         "data[Client][nombre_de_la_pareja]": formData["data[Client][nombre_de_la_pareja]"],
-        "data[Client][presupuesto_budget]": (datos.cotizacion || 0).toString(),
-        "g-recaptcha-response": formData.recaptchaToken ?? ""
+        "data[Client][presupuesto_budget]": (datos.cotizacion || 0).toString()
     };
 
 

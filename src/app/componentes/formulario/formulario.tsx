@@ -1,61 +1,19 @@
 "use client";
 import "./formulario.css";
 import type { EstadoFormulario, Formulario } from "../../utilidades/types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (cb: () => void) => void;
-      render: (
-        container: string | HTMLElement,
-        parameters: Record<string, unknown>
-      ) => void;
-      reset: (widgetId?: string | number) => void;
-    };
-  }
-}
-
 export function Formulario({ setBoton, setNombre, datos }: Formulario) {
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [recaptchaError, setRecaptchaError] = useState<string | null>(null);
-
   const [formData, setFormData] = useState<EstadoFormulario>({
     "data[Client][first_name]": "",
     "data[Client][last_name]": "",
     "data[Client][cellphone]": "",
     "data[Client][email]": "",
     "data[Client][fecha_de_la_boda]": "",
-    "data[Client][nombre_de_la_pareja]": "",
-    recaptchaToken: null,
+    "data[Client][nombre_de_la_pareja]": ""
   });
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!window.grecaptcha) {
-        setRecaptchaError(
-          "No se pudo cargar el reCAPTCHA. Por favor, recarga la página."
-        );
-      }
-    }, 3000);
-
-    if (window.grecaptcha) {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha.render("reCaptcha", {
-          sitekey: "6LfhmSYsAAAAANxIyoDJeqAABJY8NRBVPzhA3fUA",
-          callback: (token: string) => {
-            setRecaptchaToken(token);
-            setFormData((prev) => ({ ...prev, recaptchaToken: token }));
-            setRecaptchaError(null);
-          },
-        });
-      });
-    }
-
-    return () => clearTimeout(timeout);
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -68,13 +26,6 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!recaptchaToken) {
-      setRecaptchaError(
-        "Por favor completa el reCAPTCHA antes de enviar el formulario."
-      );
-      return;
-    }
 
     try {
       await enviarDatos({
@@ -98,6 +49,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
       <header>
         <h1>{t("h1")}</h1>
         <h2 className="h2Formulario">{t("h2")}</h2>
+
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </header>
 
@@ -184,10 +136,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
           />
         </div>
 
-        <div className="form-group center-block" id="reCaptcha">
-          {!recaptchaToken && recaptchaError && (
-            <span style={{ color: "red" }}>{recaptchaError}</span>
-          )}
+        <div className="form-group center-block">
           <div
             className="g-recaptcha center-block"
             data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK"
