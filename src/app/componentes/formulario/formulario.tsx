@@ -140,7 +140,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
           />
         </div>
 
-        <div className="form-group center-block">
+        <div style={{ display: "flex", justifyContent: "center" }} className="form-group center-block">
           <div
             className="g-recaptcha center-block"
             data-sitekey="6LeOg0UrAAAAAGHqDkU2-J2A4URToTltxHAaJGkK"
