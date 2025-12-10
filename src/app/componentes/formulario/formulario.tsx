@@ -5,6 +5,8 @@ import { useState } from "react";
 import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 
+declare const grecaptcha: any;
+
 export function Formulario({ setBoton, setNombre, datos }: Formulario) {
   const [formData, setFormData] = useState<EstadoFormulario>({
     "data[Client][first_name]": "",
@@ -26,6 +28,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const captchaToken = grecaptcha.getResponse();
 
     try {
       await enviarDatos({
@@ -33,6 +36,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         method: e.currentTarget.method,
         formData,
         datos,
+        captchaToken
       });
     } catch (error) {
       console.error("Error al enviar los datos:", error);
