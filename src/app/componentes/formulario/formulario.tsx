@@ -139,7 +139,11 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
             required
           />
         </div>
-
+        <input
+          type="hidden"
+          name="data[Client][cuantos_invitados_estas_considerando_how_many_guests_are_you_considering]"
+          value="0"
+        />
         <div style={{ display: "flex", justifyContent: "center" }} className="form-group center-block">
           <div
             className="g-recaptcha center-block"

@@ -49,6 +49,7 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
         "data[Client][fecha_de_la_boda]": formData["data[Client][fecha_de_la_boda]"],
         "data[Client][nombre_de_la_pareja]": formData["data[Client][nombre_de_la_pareja]"],
         "data[Client][presupuesto_budget]": (datos.cotizacion || 0).toString(),
+        "data[Client][cuantos_invitados_estas_considerando_how_many_guests_are_you_considering]": "0",
         "g-recaptcha-response": captchaToken
     };
 
@@ -63,6 +64,9 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
       body: bodyEncoded,
     });
   
+    console.log("STATUS:", res.status);
+    console.log("RESPONSE:", await res.text());    
+
     if (!res.ok) {
       console.error("Error al enviar datos a IncrementaCRM");
     } else {
