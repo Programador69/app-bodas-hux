@@ -46,23 +46,23 @@ export function Respuesta({cotizacion, nombre="Usuari@"}: Respuesta) {
             <footer>
                 <div className="redes" >
                     <a href="https://www.instagram.com/bodashuatulco" target="_BLANK" rel="noreferrer">
-                        <FaInstagram style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                        <FaInstagram style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px", color: "#fff"}} />
                     </a>
 
                     <a href="https://www.facebook.com/bodashuatulco" target="_BLANK" rel="noreferrer">
-                        <FaFacebookF style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                        <FaFacebookF style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px", color: "#fff"}} />
                     </a>
 
                     <a href="https://youtu.be/-C0XtwCtvqk?si=GeG2DhuhGLWl8p4S" target="_BLANK" rel="noreferrer">
-                        <FaYoutube style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                        <FaYoutube style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px", color: "#fff"}} />
                     </a>
 
                     <a href="https://pin.it/3ZXEfolQj" target="_BLANK" rel="noreferrer">
-                        <FaPinterestP style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                        <FaPinterestP style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px", color: "#fff"}} />
                     </a>
 
                     <a href="https://www.tiktok.com/@bodashuatulco" target="_BLANK" rel="noreferrer">
-                        <FaTiktok style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                        <FaTiktok style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px", color: "#fff"}} />
                     </a>
                 </div>
             </footer>
