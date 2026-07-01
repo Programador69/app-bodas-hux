@@ -1,5 +1,7 @@
 "use server";
 import { createPool } from "@vercel/postgres";
+import * as fpixel from "../../utilidades/fpixel";
+import {enviarLeadCAPI} from "./fbMeta";
 
 const URL = process.env.DATABASE_URL;
 
@@ -34,6 +36,21 @@ export async function subirDatosBD(datos: Datos) {
         await pool.end()
 
         console.log('Datos registrados con éxito');
+
+        fpixel.event("Lead", {
+            value: datos.cotizacion,
+            currency: "MXN"
+        });
+
+        const respuestaMeta = await enviarLeadCAPI({
+            email: datos['data[Client][email]'],
+            telefono: datos['data[Client][cellphone]'],
+            valor: datos.cotizacion
+        });
+
+        if (!respuestaMeta.success) {
+            console.error("Error al enviar a Meta CAPI: ", respuestaMeta.error);
+        }
     }
     catch (error) {
         console.error("Error al conectar a la base de datos: ", error);
