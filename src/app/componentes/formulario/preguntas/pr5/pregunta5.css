@@ -1,12 +1,62 @@
 .articlePr5 {
-    background-color: #fff;
-    background-image: url("/5.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+    margin-top: 25%;
+    background: linear-gradient(transparent, #fff);
+    border-radius: 25px;
+    width: min(100vw, 400px);
 }
 
 .articlePr5 .imagenes {
-    padding-top: 180px;
+    padding-top: 120px;
     padding-bottom: 30px;
+}
+
+.articlePr5 .imagenes button {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.articlePr5 .imagenes button img {
+    border: 2px solid #1a76b8;
+}
+
+.articlePr5 .imagenes button span {
+    display: inline-block;
+    font-size: 15px;
+    background-color: #3385c0;
+    color: #fff;
+    width: 70%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: capitalize;
+    padding: 3px 0;
+    position: absolute;
+    bottom: -10px;
+    left: 15%;
+}
+
+@media screen and (min-width: 370px) {
+    .articlePr5 {
+        margin-top: 30%;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .articlePr5 {
+        margin-top: 30%;
+    }
+
+    .articlePr5 {
+        background: initial;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        background-size: 400px;
+    }
+
+    .articlePr5 {
+        background: linear-gradient(transparent, #fff);
+    }
 }

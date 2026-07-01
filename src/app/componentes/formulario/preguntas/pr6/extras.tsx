@@ -16,11 +16,6 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
 
     return (
         <article className="articleExtras">
-            {/* <h3>Servicios Extras</h3> */}
-            <h1 className="tituloPregunta">
-                {t("pr")}
-            </h1>
-            
             <ul className="contenedor">
                 <li>
                     <label>
@@ -31,7 +26,8 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 suma: ext.suma + (e.target.checked ? 21500 : -21500),
                                 opciones: e.target.checked ? ext.opciones + " Fotografo, " : ext.opciones.replace("Fotografo, ", "")
                             }
-                        })} />{t("op1")}
+                        })} />
+                        <span>{t("op1")}</span>
                     </label>
                 </li>
                 <li>
@@ -43,19 +39,8 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 suma: ext.suma + (e.target.checked ? 22500 : -22500),
                                 opciones: e.target.checked ? ext.opciones + " Video, " : ext.opciones.replace("Video, ", "")
                             }
-                        })} />{t("op2")}
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <Image src="/ServiciosExtras/maquillaje.jpg"  alt="Imagen representativa de un servicio de maquillaje en una boda" width={100} height={100} />
-                        <input type="checkbox" onChange={(e) => setExtras(ext => {
-                            return {
-                                ...ext,
-                                suma: ext.suma + (e.target.checked ? 6000 : -6000),
-                                opciones: e.target.checked ? ext.opciones + " Maquillaje, " : ext.opciones.replace("Maquillaje, ", "")
-                            }
-                        })} />{t("op3")}
+                        })} />
+                        <span>{t("op2")}</span>
                     </label>
                 </li>
                 <li>
@@ -67,7 +52,8 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 suma: ext.suma + (e.target.checked ? 18400 : -18400),
                                 opciones: e.target.checked ? ext.opciones + " Calenda, " : ext.opciones.replace("Calenda, ", "")
                             }
-                        })} />{t("op4")}
+                        })} />
+                        <span>{t("op4")}</span>
                     </label>
                 </li>
                 <li>
@@ -79,7 +65,21 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 suma: ext.suma + (e.target.checked ? 16900 : -16900),
                                 opciones: e.target.checked ? ext.opciones + " Show de fuego, " : ext.opciones.replace("Show de fuego, ", "")
                             }
-                        })} />{t("op5")}
+                        })} />
+                        <span>{t("op5")}</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <Image src="/ServiciosExtras/maquillaje.png"  alt="Imagen representativa de un servicio de maquillaje en una boda" width={100} height={100} />
+                        <input type="checkbox" onChange={(e) => setExtras(ext => {
+                            return {
+                                ...ext,
+                                suma: ext.suma + (e.target.checked ? 6000 : -6000),
+                                opciones: e.target.checked ? ext.opciones + " Maquillaje, " : ext.opciones.replace("Maquillaje, ", "")
+                            }
+                        })} />
+                        <span>{t("op3")}</span>
                     </label>
                 </li>
             </ul>

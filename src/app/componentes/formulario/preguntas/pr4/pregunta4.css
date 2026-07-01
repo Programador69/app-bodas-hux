@@ -1,26 +1,39 @@
 .articlePr4 {
-    background-color: #fff;
-    background-image: url("/4.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+    margin-top: 25%;
+    background: linear-gradient(transparent, #fff);
+    border-radius: 25px;
+    width: min(100vw, 400px);
 }
 
 .articlePr4 .imagenes {
-    padding-top: 160px;
+    padding-top: 120px;
     padding-bottom: 30px;
+    flex-direction: column;
+}
+
+.articlePr4 .imagenes button img {
+    filter: drop-shadow(1px 1px 3px #1a76b8);
 }
 
 .articlePr4 .imagenes button {
-    height: 200px;
-    text-align: center;
-    color: #eee;
-    background-color: #1c3f7b;
-    line-height: 1.5;
-    padding: 5px 10px;
+    width: 90%;
 }
 
-.articlePr4 .tituloPregunta {
-    left: 38%;
-    /* top: 5%; */
+
+@media screen and (min-width: 370px) {
+    .articlePr4 .imagenes {
+        padding-top: 35%;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    body {
+        background-size: contain;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        background-size: 400px;
+    }
 }

@@ -5,14 +5,12 @@ import type { Respuesta } from "../../utilidades/types";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { PiCalendarHeartFill } from "react-icons/pi";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa6";
+import { FaInstagram, FaFacebookF, FaPinterestP, FaYoutube } from "react-icons/fa";
 
 
-export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: Respuesta) {
-    const reiniciar = () => {
-        boton(false);
-        router.push("/");
-        setIteracion(0);
-    }
+export function Respuesta({cotizacion, nombre="Usuari@"}: Respuesta) {
 
     const router = useRouter();
     const pathname = usePathname();
@@ -26,61 +24,47 @@ export function Respuesta({cotizacion, boton, setIteracion, nombre="Usuari@"}: R
     const t = useTranslations("resultado");
 
     return (
-        <div className="respuesta">
-            <h1>¡{t("h1")} {nombre}!</h1>
-            <h2> {t("h2")} </h2>
+        <div className="respuesta" style={t("pie") == "es" ? {backgroundImage: 'url("/resultado.png"'} : {backgroundImage: 'url("/resultadoEng.png")'}}>
+            <h1>¡{t("h1")} <span>{nombre.split(" ")[0]}</span>!</h1>
 
-            <h3> {t("h3")} </h3>
-
-            <span> 🎯 ${cotizacion.toLocaleString("es-MX")} MXN</span>
-
-            <p className="despedida"> {t("p")} </p>
-            <p className="despedida notaImportante"> {t("p-imp")} </p>
-
+            <span className="cotizacion">${cotizacion.toLocaleString("es-MX")} MXN</span>
 
             <main>
-                <section>
-                    <h3> {t("h3-blanco")} </h3>
-                    <p> {t("p-blanco")} </p>
-                    <p>
-                        {t("p2-blanco")}
-                        <a href="https://calendly.com/bodashuatulco/presentacion-de-propuesta" target="_blank" rel="noopener noreferrer">Calendly</a>
-                    </p>
-                    <p>
-                        {t("p3-blanco")}
-                        <a href="https://wa.me/529581306925" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
-                    </p>
-                </section>
+                <section className="botones">
+                    <button className="botonVideollamada">
+                        <PiCalendarHeartFill />
+                        <a href="https://calendly.com/bodashuatulco/presentacion-de-propuesta" target="_blank" rel="noreferrer">{t("botonVideollamada")}</a>
+                    </button>
 
-                <section className="bonus">
-                    <h3> {t("h32-blanco")} </h3>
-                    <p>
-                        {t("p4-blanco")}
-                        <a href="https://www.instagram.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Instagram</a>
-                        <span> | </span>
-                        <a href="https://www.youtube.com/bodashuatulco" target="_blank" rel="noopener noreferrer"> Youtube</a>
-                    </p>
-
-                    {
-                        t("boton") == "Start again" ? (
-                            <>
-                                <p>🔁 Want to explore other options? </p>
-                                <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
-                            </>
-                        ) : <button className="botonRepetir" onClick={reiniciar}> {t("boton")} </button>
-                    }
-                    
+                    <button className="botonWhats">
+                        <FaWhatsapp />
+                        <a href="https://wa.me/529581306925" target="_blank" rel="noreferrer">{t("botonWhats")}</a>
+                    </button>
                 </section>
             </main>
 
             <footer>
-                <h4>
-                    {t("h4")}
-                </h4>
-                <p>
-                    {t("p-footer")}
-                </p>
-                <span> {t("span-footer")} </span>
+                <div className="redes" >
+                    <a href="https://www.instagram.com/bodashuatulco" target="_BLANK" rel="noreferrer">
+                        <FaInstagram style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                    </a>
+
+                    <a href="https://www.facebook.com/bodashuatulco" target="_BLANK" rel="noreferrer">
+                        <FaFacebookF style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                    </a>
+
+                    <a href="https://youtu.be/-C0XtwCtvqk?si=GeG2DhuhGLWl8p4S" target="_BLANK" rel="noreferrer">
+                        <FaYoutube style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                    </a>
+
+                    <a href="https://pin.it/3ZXEfolQj" target="_BLANK" rel="noreferrer">
+                        <FaPinterestP style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                    </a>
+
+                    <a href="https://www.tiktok.com/@bodashuatulco" target="_BLANK" rel="noreferrer">
+                        <FaTiktok style={{backgroundColor: "#62a5d1", borderRadius: "20px", padding: "5px"}} />
+                    </a>
+                </div>
             </footer>
         </div>
     );

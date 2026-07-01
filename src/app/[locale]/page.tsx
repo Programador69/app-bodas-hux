@@ -6,6 +6,28 @@ import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras, Pr7 } from "../componentes/formulario/
 import { Respuesta, Formulario } from "../componentes";
 import { useTranslations } from "next-intl";
 
+const fondosPorPregunta = [
+  'url("/pr1.png")',
+  'url("/pr2.png")',
+  'url("/pr3.png")',
+  'url("/pr4.png")',
+  'url("/pr5.png")',
+  'url("/pr6.png")',
+  'url("/pr7.png")',
+  'url("/pr8.png")',
+];
+
+const fondosPorPreguntaEng = [
+  'url("/pr1eng.png")',
+  'url("/pr2eng.png")',
+  'url("/pr3eng.png")',
+  'url("/pr4eng.png")',
+  'url("/pr5eng.png")',
+  'url("/pr6eng.png")',
+  'url("/pr7eng.png")',
+  'url("/pr8eng.png")',
+];
+
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, {pr1: 0, pr2: 0, pr3: 0, pr4: 0, pr5: 0, extras: {suma: 0, opciones: ""}, pr7: 0});
     const [botonClickeado, setBotonClickeado] = useState(false);
@@ -30,31 +52,29 @@ export default function Home() {
         setIteracion(it => it + 1);
     }
 
-    const t = useTranslations("inicio");
     const seis = useTranslations("pr6");
+
+    const fondoEstilo = seis("pie") == "eng" ? {
+        backgroundImage: fondosPorPreguntaEng[iteracion] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    } :
+    {
+        backgroundImage: fondosPorPregunta[iteracion] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    }
+
 
     return (
         <>
         {
-            botonClickeado ? <Respuesta cotizacion={cotizacion} boton={setBotonClickeado} setIteracion={setIteracion} nombre={nombre} /> : (
+            botonClickeado ? <Respuesta cotizacion={cotizacion} nombre={nombre} /> : (
                 <>
-                {
-                  iteracion == 0 ? (
-                    <>
-                      <h1 className="titulo"> {t("h1")} </h1>
-                      <h2 className="h2Inicio"> {t("h2")} </h2>
-                      <h3 className="h3Inicio"> {t("h3")} </h3>
-                    </>
-                  ) : (
-                    <>
-                      <h1></h1>
-                    </>
-
-                  )
-                }
-
                     <main>
-                        <section className="contenedorPreguntas">
+                        <section className="contenedorPreguntas" style={fondoEstilo}>
                             {
                                 iteracion == 5 ? (
                                     <>
@@ -70,9 +90,8 @@ export default function Home() {
                         </section>
                     </main>
 
-                    <footer>
-                          <h4> {t("pie")} </h4>
-                    </footer>
+                    {/* <footer>
+                    </footer> */}
                 </>
             )
         }

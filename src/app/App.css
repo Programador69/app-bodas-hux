@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .titulo {
@@ -36,14 +37,15 @@
 
 .botonCotizar {
   font-weight: bold;
-  background-color: #fafafa;
-  color: #1c3f7b;
+  background-color: #1c3f7b;
+  color: #fefefe;
   letter-spacing: 1px;
-  border: 3px solid #1c3f7b;
   border-radius: 20px;
-  padding: 10px;
-  width: 50%;
+  padding: 8px 5px;
+  width: 60%;
   margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 @media only screen and (min-width: 700px) {

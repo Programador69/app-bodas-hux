@@ -1,48 +1,64 @@
 .articlePr7 {
-    background-color: #fff;
-    background-image: url("/1.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    height: 500px;
-}
-
-.articlePr7 h2 {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 0 20px;
-    color: #000;
-    text-align: center;
+    width: min(100vw, 400px);
+    height: 100dvh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .preguntaPresupuesto {
-    height: 450px;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: end;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 77%;
+    margin-bottom: 60px;
+    width: 100%;
 }
 
-.preguntaPresupuesto button {
+.preguntaPresupuesto input {
+    background-color: #e8f1f8;
+    border-radius: 10px;
+    padding: 10px;
+    color: #267dbc;
     outline: none;
     border: none;
-    width: 100px;
-    font-size: 18px;
-    align-self: center;
-    letter-spacing: 1.3px;
+    font-size: 12px;
+    width: 80%;
+    margin: 0;
+}
+
+.preguntaPresupuesto input::placeholder {
+    color: #267dbc;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.articlePr7 button {
+    font-weight: 500;
+    outline: none;
+    border: none;
+    width: 60%;
+    font-size: 15px;
+    background-color: #003d7e;
+    color: #fff;
     padding: 5px;
 }
 
-.preguntaPresupuesto button:hover {
-    border-radius: 3px solid #fff;
-    background-color: #1c3f7b;
-    color: #fff;
-    transform: scale(1.2);
-}
-
-@media screen and (min-width: 425px ) {
-    .preguntaPresupuesto {
-        height: 420px;
+@media screen and (min-width: 400px) {
+    body {
+        background-size: contain;
     }
-    
+
+    .preguntaPresupuesto {
+        margin-top: 80%;
+    }
+
+    .preguntaPresupuesto input {
+        width: 60%;
+    }
+
+    .articlePr7 button {
+        width: 40%;
+    }    
 }

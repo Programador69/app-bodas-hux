@@ -11,21 +11,11 @@ export function Pr7({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
     
     return (
         <article className="articlePr7">
-            {/* <h3>¿Qué presupuesto tienes disponible para tu boda?</h3> */}
-            <h1 className="tituloPregunta">
-                {t("pr")}
-            </h1>
-                
             <div className="preguntaPresupuesto">
                 <input type="number" value={presupuesto} placeholder={t("input")} onChange={(e) => setPresupuesto(e.target.value)} />
-
-                <h2>
-                    {t("sub")}
-                </h2>
-
-                <button onClick={() => manejarCambio(presupuesto, dispatch, "pr7", setIteracion)}> {t("boton")} </button>
-    
             </div>
+            
+                <button onClick={() => manejarCambio(presupuesto, dispatch, "pr7", setIteracion)}> {t("boton")} </button>
         </article>
     )
 }

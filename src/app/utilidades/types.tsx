@@ -20,8 +20,6 @@ export type Estado = {
 
 export type Respuesta = {
     cotizacion: number;
-    boton: React.Dispatch<React.SetStateAction<boolean>>;
-    setIteracion: React.Dispatch<React.SetStateAction<number>>;
     nombre: string
 }
 

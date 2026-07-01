@@ -10,10 +10,6 @@ export function Pr2({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
 
     return (
         <article className="articlePr2">
-            {/* <h3>¿Qué tipo de ceremonia deseas?</h3> */}
-            <h1 className="tituloPregunta">
-                {t("pr")}
-            </h1>
             
             <div className="imagenes">
                 <button onClick={() => manejarCambio("3500", dispatch, "pr2", setIteracion)}>

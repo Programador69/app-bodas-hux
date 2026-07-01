@@ -4,6 +4,14 @@ import type { EstadoFormulario, Formulario } from "../../utilidades/types";
 import { useState } from "react";
 import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
+import DateSplitInput from "./selectorFechas";
+
+type SimulatedEvent = {
+  target: {
+    name: string;
+    value: string;
+  };
+};
 
 declare const grecaptcha: any;
 
@@ -17,7 +25,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     "data[Client][nombre_de_la_pareja]": ""
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | SimulatedEvent) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -49,11 +57,8 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
   const t = useTranslations("formulario");
 
   return (
-    <>
+    <div className="formulario-contenedor">
       <header>
-        <h1>{t("h1")}</h1>
-        <h2 className="h2Formulario">{t("h2")}</h2>
-
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </header>
 
@@ -70,6 +75,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="form-group">
+          <label>{t("labelNombre")}</label>
           <input
             name="data[Client][first_name]"
             className="form-control"
@@ -82,6 +88,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="form-group">
+          <label>{t("labelApellido")}</label>
           <input
             name="data[Client][last_name]"
             className="form-control"
@@ -94,6 +101,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="form-group">
+          <label>{t("labelWhats")}</label>
           <input
             name="data[Client][cellphone]"
             className="form-control"
@@ -106,6 +114,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="form-group">
+          <label>{t("labelEmail")}</label>
           <input
             name="data[Client][email]"
             className="form-control"
@@ -118,17 +127,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="form-group">
-          <input
-            name="data[Client][fecha_de_la_boda]"
-            className="form-control"
-            type="date"
-            value={formData["data[Client][fecha_de_la_boda]"]}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
+          <label>{t("labelPareja")}</label>
           <input
             name="data[Client][nombre_de_la_pareja]"
             className="form-control"
@@ -139,6 +138,9 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
             required
           />
         </div>
+
+        <DateSplitInput handleChange={handleChange} name="data[Client][fecha_de_la_boda]" label={t("labelFecha")} />
+
         <input
           type="hidden"
           name="data[Client][cuantos_invitados_estas_considerando_how_many_guests_are_you_considering]"
@@ -152,9 +154,9 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         </div>
 
         <div className="submit">
-          <input className="btn btn-default" type="submit" value="Enviar" />
+          <input className="btn btn-default" type="submit" value={t("boton")} />
         </div>
       </form>
-    </>
+    </div>
   );
 }

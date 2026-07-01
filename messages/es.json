@@ -1,15 +1,11 @@
 {
     "inicio": {
-        "h1": "Calcula el sueño de tu boda",
-        "h2": "Tu boda, Tu estilo, Tu inversión.",
-        "h3": "Descubre en solo 2 minutos cuál sería la inversión de la boda que imaginas en el paraíso Huatulco",
-        "pr": "¿Cuántos Invitados planeas tener?",
-        "op1": "Solo nosotros 2",
-        "op2": "Menos de 15 invitados",
-        "op3": "21 a 50 invitados",
-        "op4": "51 a 100 invitados",
-        "op5": "100 a 150 invitados",
-        "op6": "Más de 150 invitados",
+        "op1": "Solo nosotros",
+        "op2": "Menos de 15",
+        "op3": "21 a 50",
+        "op4": "51 a 100",
+        "op5": "100 a 150",
+        "op6": "Más de 150",
         "pie": "Todos los derechos reservados"
     },
     "pr2": {
@@ -40,45 +36,51 @@
         "op4": "Música en vivo (Una banda, grupo versátil o mariachi para darle vida al evento)",
         "op5": "Fiesta total (DJ + efectos especiales luces, pista iluminada, etc. Para hacer un fiestón)",
         "op6": "Experiencia completa (música en vivo para ceremonia/cóctel, DJ/banda para la fiesta, con ambientación y producción pro)",
-        "pie": "Todos los derechos reservados"
+        "pie": "es"
     },
     "pr5": {
         "pr": "¿Qué tipo de Menú buscarías?",
-        "op1": "Solo canapes y bocadillos",
-        "op2": "Taquiza o comida típica mexicana",
+        "op1": "Canapés y bocadillos",
+        "op2": "Taquiza mexicana",
         "op3": "Menu de 3 tiempos",
         "op4": "Buffet variado",
         "op5": "Banquete gourmet",
-        "op6": "Experiencia culinaria personalizada",
+        "op6": "Menú personalizado",
         "pie": "Todos los derechos reservados"
     },
     "pr6": {
         "pr": "Servicios Extras",
         "op1": "Foto",
         "op2": "Video",
-        "op3": "Maquillaje",
+        "op3": "Maquillaje y peinado",
         "op4": "Calenda",
         "op5": "Show de fuego",
-        "boton": "Cotizar",
+        "boton": "Calcular mi boda",
         "pie": "Todos los derechos reservados"
     },
     "pr7": {
         "pr": "Ahora que respondiste las preguntas... antes de mostrarte tu número mágico, dime: ¿Cuánto estas dispuest@ a invertir en el sueño de tu boda?",
         "sub": "No hay respuestas correctas o incorrectas, esta cifra nos ayuda a darte un resultado más realista",
-        "input": "El monto es en MXN",
-        "boton": "Aceptar",
+        "input": "$ Tu monto aproximado MXN",
+        "boton": "Revelar mi número",
         "pie": "Todos los derechos reservados"
     },
     "formulario": {
         "h1": "¿List@s para ver tu sueño convertido en inversión?",
         "h2": "Déjanos tus datos y te mostraremos el estimado perzonalizado para la boda que imaginas en Huatulco. Este es solo el primer paso para hacerla realidad. ✨ 🌴 💍",
-        "nombre": "Nombre(s)",
-        "apellido": "Apellidos",
-        "celular": "WhatsApp",
-        "email": "Email",
-        "fecha": "Fecha de la boda",
-        "nombre-pareja": "Nombre de la pareja",
-        "boton": "Número mágico",
+        "nombre": "Tu nombre",
+        "labelNombre": "Nombre (s):",
+        "apellido": "Tus Apellidos",
+        "labelApellido": "Apellidos:",
+        "celular": "Tu número de WhatsApp",
+        "labelWhats": "WhatsApp:",
+        "email": "tucorreo@ejemplo.com",
+        "labelEmail": "Email:",
+        "fecha": "Fecha Probable",
+        "labelFecha": "Fecha Probable:",
+        "nombre-pareja": "Nombre de tu pareja",
+        "labelPareja": "Nombre de tu pareja:",
+        "boton": "Ver mi inversión",
         "pie": "Todos los derechos reservados"
     },
     "resultado": {
@@ -87,16 +89,13 @@
         "h3": "Según las elecciones que hiciste, el rango estimado para organizar una boda como la que imaginas en Huatulco es de:",
         "p": "Sabemos que cada boda es única, por eso esta cifra es solo un punto de partida. Nuestro equipo se especializa en diseñar experiencias únicas para cada pareja, cuidando cada detalle y respetando la inversión de cada pareja.",
         "p-imp": "💌 Importante: Como ya nos compartiste tu correo, en las próximas horas te llegarán mensajes con información exclusiva para que empieces esta nueva aventura: consejos, inspiración y pasos clave para que tu boda destino sea perfecta. Revisa tu bandeja de entrada (y la carpeta de 'no deseados' por si acaso) para que no te pierdas nada.",
-        "h3-blanco": "¿Qué sigue?",
-        "p-blanco": "🎥 ¿Te gustaría que armemos una propuesta más personalizada y con ideas reales de proveedores, locaciones y estilos?",
-        "p2-blanco": "Agenda una videollamada sin costo aquí ➡️",
-        "p3-blanco": "También puedes escribirnos directo por WhatsApp ➡️",
-        "h32-blanco": "Bonus",
         "p4-blanco": "Mientras tanto, aquí tienes inspiración real de bodas organizadas por nuestro equipo:",
         "boton": "Repetir formulario",
+        "botonVideollamada": "Agendar videollamada gratis",
+        "botonWhats": "Escríbenos por WhatsApp",
         "h4": "Gracias por confiar en Bodas Huatulco; estamos listas para ayudarte a dar este gran paso.",
         "p-footer": "Con cariño, Marce & el equipo de Bodas Huatulco.",
         "span-footer": "🌴 Especialistas en bodas destino desde hace 17 años",
-        "pie": "Todos los derechos reservados"
+        "pie": "es"
     }
 }

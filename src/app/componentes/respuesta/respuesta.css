@@ -1,92 +1,129 @@
 .respuesta {
-    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 99%;
+    height: 620px;
+    width: 100%;
+    position: relative;
 }
 
-.respuesta h1, .respuesta h2, .respuesta h3, .respuesta span, .respuesta p {
+.respuesta h1, .respuesta span {
     font-family: "RocknRoll One", sans-serif;
 }
 
-.respuesta h2 {
-    font-size: 1.1rem;
+.respuesta h1 {
+    text-align: center;
+    margin-top: 35%;
+    color: #000;
 }
 
-.respuesta h3 {
-    font-size: 1.1em;
-    width: 90%;
+.respuesta h1 span {
+    color: #1a76b8;
+    text-transform: capitalize;
+}
+
+.cotizacion {
+    font-size: large;
+    display: block;
+    margin-top: 23%;
+    text-align: center;
+}
+
+.botonRepetir {
+    padding: 2px 10px;
+    background-color: #1e1e1e;
+    color: #eee;
+    font-size: 0.9em;
+    font-weight: initial;
+    display: block;
     margin: auto;
-    margin-bottom: 15px;
-}
-
-.respuesta span {
-    font-size: 1.5em;
-}
-
-.despedida {
-    width: 75%;
-    margin: auto;
-    margin-top: 30px;
-    text-align: justify;
-    margin-bottom: 30px;
+    margin-top: 15%;
 }
 
 .respuesta main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: #f6f6f6;
-    color: #1e1e1e;
-    padding: 20px 0;
-    margin: auto;
-    border-radius: 20px;
+    margin-top: 23%;
 }
 
-.respuesta main a {
-    color: #4565f3;
+.botones {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.respuesta main section {
-    width: 90%;
+.botonVideollamada {
+    background-color: #1a76b8;
+    color: #fff;
 }
 
-.respuesta main section p {
-    text-align: start;
+.botonWhats {
+    background-color: #76add4;
+    color: #fff;
 }
 
-.respuesta main .bonus p {
-    text-align: center;
-    margin-bottom: 30px;
+.botones button {
+    display: flex;
+    align-items: center;
+    padding: 4px 15px;
 }
+
+.botones button a {
+    color: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
 
 footer {
-    width: 90%;
-    margin: auto;
-    margin-top: 30px;
-    text-align: center;
-    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.respuesta footer h4 {
-    margin: 10px 0;
-    font-size: 15px;
+.redes {
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
 }
 
-.respuesta footer p, .respuesta footer span {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
+@media screen and (min-width: 370px) {
+    .respuesta {
+        height: 740px;
+    }
+
+    .botones {
+        margin-top: 25%;
+    }
+
+    .botonRepetir {
+        margin-top: 20%;
+    }
 }
 
-.botonRepetir {
-    background-color: #1e1e1e;
-    padding: 10px 20px;
-    color: #eee;
-}
+@media screen and (min-width: 400px) {
+    .respuesta {
+        width: 400px;
+        height: 800px;
+        background-size: 100%;
+    }
 
-.notaImportante {
-    font-size: 19px;
-    background-color: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(10px); 
-    border-radius: 10px;
-    padding: 0 10px;
+    .cotizacion {
+        margin-top: 25%;
+    }
+
+    .botones {
+        margin-top: 28%;
+    }
+
+    .botones {
+        gap: 15px;
+    }
 }
