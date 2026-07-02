@@ -6,6 +6,7 @@ import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 import DateSplitInput from "./selectorFechas";
 import * as fpixel  from "../../utilidades/fpixel";
+import { v4 as uuidv4 } from 'uuid';
 
 type SimulatedEvent = {
   target: {
@@ -35,6 +36,8 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     }));
   };
 
+  const idUnico = uuidv4(); // Genera un ID único para el evento
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const captchaToken = grecaptcha.getResponse();
@@ -42,6 +45,9 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     fpixel.event("Lead", {
       value: datos.cotizacion,
       currency: "MXN"
+    },
+    {
+      eventID: idUnico
     });
 
     try {
@@ -50,7 +56,8 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         method: e.currentTarget.method,
         formData,
         datos,
-        captchaToken
+        captchaToken,
+        idMeta: idUnico
       });
     } catch (error) {
       console.error("Error al enviar los datos:", error);

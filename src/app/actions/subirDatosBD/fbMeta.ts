@@ -1,7 +1,14 @@
 // app/acciones.ts
 'use server';
 
-export async function enviarLeadCAPI(datos: { email: string; telefono?: string; valor: number }) {
+type LeadCAPIProps = {
+  email: string;
+  telefono?: string;
+  valor: number;
+  idMeta: string;
+}
+
+export async function enviarLeadCAPI(datos: LeadCAPIProps) {
   const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
   const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN; // Tu token privado de Meta
 
@@ -18,6 +25,7 @@ export async function enviarLeadCAPI(datos: { email: string; telefono?: string; 
       {
         event_name: 'Lead',
         event_time: Math.floor(Date.now() / 1000), // Timestamp en segundos
+        event_id: datos.idMeta,
         action_source: 'website',
         user_data: {
           // Meta recomienda enviar mínimo el email (hasheado o plano si usas su SDK)

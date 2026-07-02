@@ -8,17 +8,9 @@ type PropsEnviar = {
     method: string;
     formData: EstadoFormulario;
     datos: Estado;
+    captchaToken: string
+    idMeta: string;
 };
-
-type FormData = {
-    'data[Client][first_name]': string;
-    'data[Client][last_name]': string;
-    'data[Client][cellphone]': string;
-    'data[Client][email]': string;
-    'data[Client][fecha_de_la_boda]': string;
-    'data[Client][nombre_de_la_pareja]': string;
-};
-
 
 function encodeForm(data: Record<string, string>) {
     return Object.keys(data)
@@ -31,7 +23,7 @@ function encodeForm(data: Record<string, string>) {
     .join("&");
 }
 
-export async function enviarDatos({action, method, formData, datos, captchaToken }: {action: string, method: string, formData: FormData, datos: Estado,captchaToken: string}) {
+export async function enviarDatos({action, method, formData, datos, captchaToken, idMeta }: PropsEnviar) {
     // Recuperar los demas datos del formulario
     const respuestaInvitados = datos.pr1 == 11000 ? "Solo Nosotros 2" : datos.pr1 == 15000 ? "Menos de 15 invitados" : datos.pr1 == 50000 ? "21 a 50 invitados" : datos.pr1 == 75000 ? "51 a 100 invitados" : datos.pr1 == 85000 ? "100 a 150 invitados" : datos.pr1 == 100000 ? "Mas de 150" : "n/a";
     const respuestaCeremonia = datos.pr2 == 3500 ? "No quiero Ceremonia" : datos.pr2 == 6100 ? "Simbólica" : datos.pr2 == 5600 ? "Religiosa" : datos.pr2 == 9550 ? "Civil" : datos.pr2 == 45000 ? "Zapoteca" : "n/a";
@@ -92,6 +84,7 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
         'extras': respuestaExtras,
         "cotizacion" : datos.cotizacion || 0,
         "fechaRegistro" : diaCorto,
+        "idMeta": idMeta
     }
 
     // console.log('Datos enviados:', dataFinal);

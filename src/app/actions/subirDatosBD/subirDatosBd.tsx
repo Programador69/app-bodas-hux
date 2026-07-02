@@ -19,6 +19,7 @@ type Datos = {
     fechaBoda: string;
     nombrePareja: string;
     fechaRegistro: string;
+    idMeta: string;
 }
 
 export async function subirDatosBD(datos: Datos) {
@@ -39,7 +40,8 @@ export async function subirDatosBD(datos: Datos) {
         const respuestaMeta = await enviarLeadCAPI({
             email: datos['data[Client][email]'],
             telefono: datos['data[Client][cellphone]'],
-            valor: datos.cotizacion
+            valor: datos.cotizacion,
+            idMeta: datos.idMeta
         });
 
         if (!respuestaMeta.success) {

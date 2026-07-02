@@ -8,8 +8,8 @@ export const pageview = () => {
 };
 
 // https://developers.facebook.com/docs/facebook-pixel/reference
-export const event = (name, options) => {
-  window.fbq('track', name, options);
+export const event = (name, options, metaOptions) => {
+  window.fbq('track', name, options, metaOptions);
 };
 
 // Initialize Facebook Pixel if not already initialized
@@ -19,7 +19,6 @@ export const initFbPixel = () => {
     !(function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         n.callMethod
           ? n.callMethod.apply(n, arguments)
           : n.queue.push(arguments);
