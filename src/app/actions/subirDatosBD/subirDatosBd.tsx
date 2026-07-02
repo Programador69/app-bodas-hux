@@ -1,7 +1,7 @@
 "use server";
 import { createPool } from "@vercel/postgres";
-import * as fpixel from "../../utilidades/fpixel";
 import {enviarLeadCAPI} from "./fbMeta";
+import { subirDatosNavegador } from "./fbNavegador";
 
 const URL = process.env.DATABASE_URL;
 
@@ -37,10 +37,7 @@ export async function subirDatosBD(datos: Datos) {
 
         console.log('Datos registrados con éxito');
 
-        fpixel.event("Lead", {
-            value: datos.cotizacion,
-            currency: "MXN"
-        });
+        await subirDatosNavegador(datos.cotizacion);
 
         const respuestaMeta = await enviarLeadCAPI({
             email: datos['data[Client][email]'],
