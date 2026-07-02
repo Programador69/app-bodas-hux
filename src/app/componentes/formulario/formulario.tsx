@@ -5,6 +5,7 @@ import { useState } from "react";
 import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 import DateSplitInput from "./selectorFechas";
+import * as fpixel  from "../../utilidades/fpixel";
 
 type SimulatedEvent = {
   target: {
@@ -37,6 +38,11 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const captchaToken = grecaptcha.getResponse();
+
+    fpixel.event("Lead", {
+      value: datos.cotizacion,
+      currency: "MXN"
+    });
 
     try {
       await enviarDatos({

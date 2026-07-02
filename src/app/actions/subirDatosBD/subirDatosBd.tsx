@@ -1,7 +1,6 @@
 "use server";
 import { createPool } from "@vercel/postgres";
 import {enviarLeadCAPI} from "./fbMeta";
-import { subirDatosNavegador } from "./fbNavegador";
 
 const URL = process.env.DATABASE_URL;
 
@@ -36,8 +35,6 @@ export async function subirDatosBD(datos: Datos) {
         await pool.end()
 
         console.log('Datos registrados con éxito');
-
-        await subirDatosNavegador(datos.cotizacion);
 
         const respuestaMeta = await enviarLeadCAPI({
             email: datos['data[Client][email]'],
