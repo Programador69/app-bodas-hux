@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import DateSplitInput from "./selectorFechas";
 import * as fpixel  from "../../utilidades/fpixel";
 import { v4 as uuidv4 } from 'uuid';
+import {useSearchParams} from "next/navigation";
 
 type SimulatedEvent = {
   target: {
@@ -18,6 +19,8 @@ type SimulatedEvent = {
 declare const grecaptcha: any;
 
 export function Formulario({ setBoton, setNombre, datos }: Formulario) {
+  const searchParams = useSearchParams();
+
   const [formData, setFormData] = useState<EstadoFormulario>({
     "data[Client][first_name]": "",
     "data[Client][last_name]": "",
@@ -42,6 +45,10 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     e.preventDefault();
     const captchaToken = grecaptcha.getResponse();
 
+    const utm_source = searchParams.get('utm_source') || 'organico';
+    const utm_campaign = searchParams.get('utm_campaign') || '';
+    const utm_content = searchParams.get('utm_content') || '';
+
     fpixel.event("Lead", {
       value: datos.cotizacion,
       currency: "MXN"
@@ -57,7 +64,10 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
         formData,
         datos,
         captchaToken,
-        idMeta: idUnico
+        idMeta: idUnico,
+        utm_source,
+        utm_campaign,
+        utm_content
       });
     } catch (error) {
       console.error("Error al enviar los datos:", error);
