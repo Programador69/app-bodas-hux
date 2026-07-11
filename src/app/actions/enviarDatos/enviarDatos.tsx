@@ -69,11 +69,11 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
     }
 
     const fecha = new Date();
-    const dia = fecha.getDate();
-    const mes = fecha.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const dia = String(fecha.getDate()).padStart(2, '0'); // Asegurarse de que el día tenga dos dígitos
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses en JavaScript van de 0 a 11
     const ano = fecha.getFullYear();
 
-    const diaCorto = `${ano} - ${mes} - ${dia}`;
+    const diaCorto = `${ano}-${mes}-${dia}`;
 
     const dataFinal = {
         ...formData,
