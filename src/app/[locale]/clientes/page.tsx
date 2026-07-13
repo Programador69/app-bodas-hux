@@ -62,22 +62,24 @@ export default function Clientes() {
                                 // Aqui haremos un ul con los datos de la base de datos
                                 // y los mostraremos en una tabla
                                 informacion.map((item) => (
-                                    <ul key={item.is}>
+                                    <ul key={item.correo}>
                                         <li>{item.nombre}; {item.nombrepareja}</li>
                                         <li>{item.apellido}</li>
                                         <li>{item.celular}</li>
                                         <li>{item.correo}</li>
                                         <li>${parseInt(item.cotizacion).toLocaleString("es-MX")}</li>
                                         <li>{item.fechaboda}</li>
-                                        <ul className="ulDesgloce">
-                                            <li><span>Invitados:</span> {item.invitados}</li>
-                                            <li><span>Ceremonia:</span> {item.ceremonia}</li>
-                                            <li><span>Decoración:</span> {item.decoracion}</li>
-                                            <li><span>Música:</span> {item.musica}</li>
-                                            <li><span>Menú:</span> {item.menu}</li>
-                                            <li><span>Extras:</span> {item.extras}</li>
-                                        </ul>
-                                        <li>{item.fecharegistro}</li>
+                                        <li>
+                                            <ul className="ulDesgloce">
+                                                <li><span>Invitados:</span> {item.invitados}</li>
+                                                <li><span>Ceremonia:</span> {item.ceremonia}</li>
+                                                <li><span>Decoración:</span> {item.decoracion}</li>
+                                                <li><span>Música:</span> {item.musica}</li>
+                                                <li><span>Menú:</span> {item.menu}</li>
+                                                <li><span>Extras:</span> {item.extras}</li>
+                                            </ul>
+                                        </li>
+                                        <li>{item.fecharegistro.toLocaleDateString()}</li>
                             </ul>
                                 ))
                             }
