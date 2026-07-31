@@ -36,8 +36,8 @@ export async function subirDatosBD(datos: Datos) {
         }
 
         await pool.sql`
-            INSERT INTO clientes (nombre, apellido, celular, correo, cotizacion, invitados, ceremonia, decoracion, musica, menu, extras, fechaBoda, nombrePareja, fechaRegistro, utm_source, utm_campaign, utm_content)
-             VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja}, ${datos.fechaRegistro}, ${datos.utm_source}, ${datos.utm_campaign}, ${datos.utm_content})
+            INSERT INTO clientes (nombre, apellido, celular, correo, cotizacion, invitados, ceremonia, decoracion, musica, menu, extras, fechaBoda, nombrePareja, fechaRegistro, utm_source, utm_campaign, utm_content, fechasusoformulario)
+             VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja}, ${datos.fechaRegistro}, ${datos.utm_source}, ${datos.utm_campaign}, ${datos.utm_content}, ${String(datos.fechaRegistro)})
              ON CONFLICT (correo) DO UPDATE SET
              usos = clientes.usos + 1,
              cotizacion = EXCLUDED.cotizacion,
@@ -50,6 +50,7 @@ export async function subirDatosBD(datos: Datos) {
              fechaBoda = EXCLUDED.fechaBoda,
              nombrePareja = EXCLUDED.nombrePareja,
              fechaRegistro = EXCLUDED.fechaRegistro,
+             fechasusoformulario = clientes.fechasusoformulario || ', ' || EXCLUDED.fechaRegistro,
              utm_source = CASE
                             WHEN EXCLUDED.utm_source = 'organico' OR EXCLUDED.utm_source = '' THEN clientes.utm_source
                             ELSE EXCLUDED.utm_source
