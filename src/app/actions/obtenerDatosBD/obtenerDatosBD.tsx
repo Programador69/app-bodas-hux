@@ -12,7 +12,7 @@ export async function obtenerDatosBD()  {
         }
 
         const { rows } = await pool.sql`SELECT nombre,apellido,celular,correo,cotizacion,invitados,ceremonia,decoracion,musica,menu,extras,fechaboda,nombrepareja,fecharegistro AT TIME ZONE 'America/Mexico_City' as fecharegistro FROM clientes ORDER BY fecharegistro DESC limit 50`;
-        await pool.end()
+        await pool.end();
 
         return rows;
     }
