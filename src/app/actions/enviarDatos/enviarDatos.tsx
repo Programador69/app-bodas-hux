@@ -68,13 +68,6 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
       console.log("Datos enviados al IncrementaCRM");
     }
 
-    const fecha = new Date();
-    const dia = String(fecha.getDate()).padStart(2, '0'); // Asegurarse de que el día tenga dos dígitos
-    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses en JavaScript van de 0 a 11
-    const ano = fecha.getFullYear();
-
-    const diaCorto = `${ano}-${mes}-${dia}`;
-
     const dataFinal = {
         ...formData,
         fechaBoda: formData["data[Client][fecha_de_la_boda]"],
@@ -86,7 +79,6 @@ export async function enviarDatos({action, method, formData, datos, captchaToken
         'menu': respuestaMenu,
         'extras': respuestaExtras,
         "cotizacion" : datos.cotizacion || 0,
-        "fechaRegistro" : diaCorto,
         "idMeta": idMeta,
         "utm_source": utm_source,
         "utm_campaign": utm_campaign,

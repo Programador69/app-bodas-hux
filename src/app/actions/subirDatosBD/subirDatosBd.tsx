@@ -18,7 +18,6 @@ type Datos = {
     'data[Client][email]': string;
     fechaBoda: string;
     nombrePareja: string;
-    fechaRegistro: string;
     idMeta: string;
     utm_source: string;
     utm_campaign: string;
@@ -37,7 +36,7 @@ export async function subirDatosBD(datos: Datos) {
 
         await pool.sql`
             INSERT INTO clientes (nombre, apellido, celular, correo, cotizacion, invitados, ceremonia, decoracion, musica, menu, extras, fechaBoda, nombrePareja, fechaRegistro, utm_source, utm_campaign, utm_content, fechasusoformulario)
-             VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja}, ${datos.fechaRegistro}, ${datos.utm_source}, ${datos.utm_campaign}, ${datos.utm_content}, ${String(datos.fechaRegistro)})
+             VALUES (${datos['data[Client][first_name]']}, ${datos['data[Client][last_name]']}, ${datos['data[Client][cellphone]']}, ${datos['data[Client][email]']}, ${datos.cotizacion}, ${datos.invitados}, ${datos.ceremonia}, ${datos.decoracion}, ${datos.musica}, ${datos.menu}, ${datos.extras}, ${datos.fechaBoda}, ${datos.nombrePareja}, ${new Date().toISOString()}, ${datos.utm_source}, ${datos.utm_campaign}, ${datos.utm_content}, ${String(new Date().toISOString().slice(0,10))})
              ON CONFLICT (correo) DO UPDATE SET
              usos = clientes.usos + 1,
              cotizacion = EXCLUDED.cotizacion,
