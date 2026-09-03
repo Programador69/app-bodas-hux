@@ -20,12 +20,12 @@
     },
     "pr3": {
         "pr": "¿Cómo imaginas la decoración de tu boda?",
-        "op1": "Sencilla y natural",
-        "op2": "Íntima con detalles",
-        "op3": "Tropical con estilo",
-        "op4": "Elegante con diseño",
-        "op5": "Producción completa",
-        "op6": "WOW total",
+        "op1": "Sencilla y natural Desde $330 p/p",
+        "op2": "Íntima con detalles Desde $500 p/p",
+        "op3": "Tropical con estilo Desde $750 p/p",
+        "op4": "Elegante con diseño Desde $950 p/p",
+        "op5": "Producción completa Desde $1200 p/p",
+        "op6": "WOW total Desde $1900 p/p",
         "pie": "Todos los derechos reservados"
     },
     "pr4": {
@@ -40,12 +40,12 @@
     },
     "pr5": {
         "pr": "¿Qué tipo de Menú buscarías?",
-        "op1": "Canapés y bocadillos",
-        "op2": "Taquiza mexicana",
-        "op3": "Menu de 3 tiempos",
-        "op4": "Buffet variado",
-        "op5": "Banquete gourmet",
-        "op6": "Menú personalizado",
+        "op1": "Canapés y bocadillos Desde $1040 p/p",
+        "op2": "Taquiza mexicana Desde $935 p/p",
+        "op3": "Menu de 3 tiempos Desde $1485 p/p",
+        "op4": "Buffet variado Desde $1595 p/p",
+        "op5": "Banquete gourmet Desde $1810 p/p",
+        "op6": "Menú personalizado Desde $2530 p/p",
         "pie": "Todos los derechos reservados"
     },
     "pr6": {

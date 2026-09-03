@@ -28,10 +28,12 @@
     border-radius: 10px;
     font-weight: bold;
     font-size: 12px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
+    text-align: center;
+    text-wrap: balance;
     padding: 3px 0;
     position: absolute;
-    bottom: -10px;
+    bottom: -20px;
     left: 15%;
 }
 

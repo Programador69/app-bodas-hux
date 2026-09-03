@@ -13,7 +13,7 @@ export function Pr3({dispatch, setIteracion}: {dispatch: React.ActionDispatch<[a
             <div className="imagenes">
                 <button onClick={() => manejarCambio("330", dispatch, "pr3", setIteracion)}>
                     <Image src="/Pregunta3/sencillaynatural.jpg" alt="Imagen visual de una boda" width={100} height={100} />
-                    <span> {t("op1")} </span>
+                    <span> {t("op1")}</span>
                 </button>
 
                 <button onClick={() => manejarCambio("500", dispatch, "pr3", setIteracion)}>

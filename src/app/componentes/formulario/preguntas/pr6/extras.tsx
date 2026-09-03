@@ -27,7 +27,7 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 opciones: e.target.checked ? ext.opciones + " Fotografo, " : ext.opciones.replace("Fotografo, ", "")
                             }
                         })} />
-                        <span>{t("op1")}</span>
+                        <span>{t("op1")} <br/> { t('pr') == 'Servicios Extras' ? 'Desde $21,500' : 'From $21,500 MXN' } </span>
                     </label>
                 </li>
                 <li>
@@ -40,7 +40,7 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 opciones: e.target.checked ? ext.opciones + " Video, " : ext.opciones.replace("Video, ", "")
                             }
                         })} />
-                        <span>{t("op2")}</span>
+                        <span>{t("op2")} <br/> { t('pr') == 'Servicios Extras' ? 'Desde $22,500' : 'From $22,500 MXN' } </span>
                     </label>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 opciones: e.target.checked ? ext.opciones + " Calenda, " : ext.opciones.replace("Calenda, ", "")
                             }
                         })} />
-                        <span>{t("op4")}</span>
+                        <span>{t("op4")} <br/> { t('pr') == 'Servicios Extras' ? 'Desde $18,400' : 'From $18,400 MXN' } </span>
                     </label>
                 </li>
                 <li>
@@ -66,7 +66,7 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 opciones: e.target.checked ? ext.opciones + " Show de fuego, " : ext.opciones.replace("Show de fuego, ", "")
                             }
                         })} />
-                        <span>{t("op5")}</span>
+                        <span>{t("op5")} <br/> { t('pr') == 'Servicios Extras' ? 'Desde $16,900' : 'From $16,900 MXN' } </span>
                     </label>
                 </li>
                 <li>
@@ -79,7 +79,7 @@ export function Extras({dispatch}: {dispatch: React.ActionDispatch<[action: Acti
                                 opciones: e.target.checked ? ext.opciones + " Maquillaje, " : ext.opciones.replace("Maquillaje, ", "")
                             }
                         })} />
-                        <span>{t("op3")}</span>
+                        <span>{t("op3")} <br/> { t('pr') == 'Servicios Extras' ? 'Desde $6,000' : 'From $6,000 MXN' } </span>
                     </label>
                 </li>
             </ul>

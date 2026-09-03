@@ -1,6 +1,6 @@
 .articleExtras {
     margin-top: 60%;
-    background: linear-gradient(transparent, #fff);
+    background: linear-gradient(transparent, #fff, #fff);
     border-radius: 25px;
     width: min(100vw, 400px);
 }
@@ -31,6 +31,7 @@
 
 .contenedor li {
   position: relative;
+  margin-bottom: 25px;
 }
 
 .contenedor li label input {
@@ -53,12 +54,14 @@
   padding: 2px 0;
   text-align: center;
   position: absolute;
-  bottom: -10px;
+  text-wrap: balance;
+  bottom: -30px;
   left: 5%;
+  letter-spacing: 0.5px;
 }
 
 .contenedor li:nth-child(5) > label > span {
-  bottom: 10px;
+  bottom: 0;
 }
 
 @media screen and (min-width: 400px) {

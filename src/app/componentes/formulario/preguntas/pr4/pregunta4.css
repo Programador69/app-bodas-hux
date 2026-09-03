@@ -17,6 +17,41 @@
 
 .articlePr4 .imagenes button {
     width: 90%;
+    position: relative;
+}
+
+/* .articlePr4 .imagenes button span {
+    display: inline-block;
+    font-size: 15px;
+    background-color: #3e5d8c;
+    color: #fff;
+    width: 70%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: capitalize;
+    padding: 3px 0;
+    text-decoration: numeric;
+    position: absolute;
+    bottom: -10px;
+    left: 15%;
+} */
+
+.articlePr4 .imagenes button span {
+    display: inline-block;
+    font-size: 15px;
+    /* background-color: #3e5d8c; */
+    color: #15336f;
+    /* width: 70%; */
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: capitalize;
+    /* padding: 3px 0; */
+    text-decoration: numeric;
+    position: absolute;
+    bottom: 10px;
+    left: 75%;
 }
 
 

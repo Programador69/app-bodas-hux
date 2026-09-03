@@ -24,12 +24,12 @@
     },
     "pr3": {
         "pr": "How do you envision your wedding décor?",
-        "op1": "Simple and natural",
-        "op2": "Intimate with details",
-        "op3": "Tropical with style",
-        "op4": "Elegant with design",
-        "op5": "Full production",
-        "op6": "Total WOW",
+        "op1": "Simple and natural From $330 MXN p/p",
+        "op2": "Intimate with details From $500 MXN p/p",
+        "op3": "Tropical with style From $750 MXN p/p",
+        "op4": "Elegant with design From $950 MXN p/p",
+        "op5": "Full production From $1,200 MXN p/p",
+        "op6": "Total WOW From $1,900 MXN p/p",
         "pie": "All rights reserved"
     },
     "pr4": {
@@ -44,12 +44,12 @@
     },
     "pr5": {
         "pr": "What kind of dining experience would you like for your wedding?",
-        "op1": "Canapés & bites",
-        "op2": "Mexican taquiza",
-        "op3": "3-course menu.",
-        "op4": "Varied buffet",
-        "op5": "Gourmet banquet ",
-        "op6": "Custom menu",
+        "op1": "Canapés & bites From $1040 p/p",
+        "op2": "Mexican taquiza From $935 p/p",
+        "op3": "3-course menu From $1485 p/p.",
+        "op4": "Varied buffet From $1595 p/p",
+        "op5": "Gourmet banquet  From $1810 p/p",
+        "op6": "Custom menu From $2530 p/p",
         "pie": "All rights reserved"
     },
     "pr6": {
