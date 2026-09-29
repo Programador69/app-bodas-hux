@@ -10,28 +10,29 @@
 .preguntaPresupuesto {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 77%;
-    margin-bottom: 60px;
-    width: 100%;
+    align-self: flex-start;
+    justify-content: left;
+    margin-top: 82.5%;
+    margin-bottom: 65px;
+    width: 56%;
+    gap: 3px;
 }
 
 .preguntaPresupuesto input {
     background-color: #e8f1f8;
-    border-radius: 10px;
-    padding: 10px;
     color: #267dbc;
     outline: none;
     border: none;
-    font-size: 12px;
-    width: 80%;
-    margin: 0;
+    width: 100%;
 }
 
-.preguntaPresupuesto input::placeholder {
-    color: #267dbc;
-    text-transform: uppercase;
-    text-align: center;
+input[type="radio"] {
+  accent-color: #267dbc; /* Cambia al color que prefieras */
+  /* appearance: none; Elimina el estilo predeterminado del navegador */
+  /* width: 13px;
+  height: 13px;
+  margin: 0; */
+  background-color: #e8f1f8;
 }
 
 .articlePr7 button {
@@ -45,17 +46,24 @@
     padding: 5px;
 }
 
+@media (min-width: 374px) {
+    .preguntaPresupuesto {
+        margin-top: 83%;
+        gap: 7px;
+        margin-bottom: 75px;
+    }
+
+}
+
 @media screen and (min-width: 400px) {
     body {
         background-size: contain;
     }
 
     .preguntaPresupuesto {
-        margin-top: 80%;
-    }
-
-    .preguntaPresupuesto input {
-        width: 60%;
+        margin-top: 83.5%;
+        gap: 8px;
+        margin-bottom: 80px;
     }
 
     .articlePr7 button {

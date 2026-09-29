@@ -1,0 +1,100 @@
+.respuestaExtra h1, .respuestaExtra span {
+    font-family: "RocknRoll One", sans-serif;
+}
+
+.respuestaExtra h1 {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.respuestaExtra h1 span {
+    color: #1a76b8;
+    text-transform: capitalize;
+}
+
+.respuestaExtra footer {
+    position: relative;
+    width: 100%;
+    height: 153px;
+    margin-top: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.respuestaExtra footer .redes {
+    bottom: 20px;
+    gap: 30px;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+}
+
+.respuestaExtra {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 99%;
+    height: 620px;
+    width: 100%;
+    position: relative;
+}
+
+
+.respuestaExtra main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 23%;
+}
+
+.respuestaExtra .botones {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.respuestaExtra .botonWhats {
+    background-color: #76add4;
+    color: #fff;
+}
+
+.respuestaExtra .botones button {
+    display: flex;
+    align-items: center;
+    padding: 4px 15px;
+}
+
+.respuestaExtra .botones button a {
+    color: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+
+
+@media screen and (min-width: 370px) {
+    .respuestaExtra {
+        height: 740px;
+    }
+
+    .respuestaExtra .botones {
+        margin-top: 25%;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .respuestaExtra {
+        width: 400px;
+        height: 800px;
+        background-size: 100%;
+    }
+    
+    .respuestaExtra .botones {
+        margin-top: 28%;
+        gap: 15px;
+    }
+}

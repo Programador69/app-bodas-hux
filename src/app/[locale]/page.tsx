@@ -1,10 +1,11 @@
 "use client";
 import "../App.css";
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { reducer, cotizar } from "../actions";
 import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras, Pr7 } from "../componentes/formulario/preguntas";
-import { Respuesta, Formulario } from "../componentes";
+import { Respuesta, Formulario, RespuestaNo1, RespuestaNo2, RespuestaNo3 } from "../componentes";
 import { useTranslations } from "next-intl";
+import * as fpixel  from "../utilidades/fpixel";
 
 const fondosPorPregunta = [
   'url("/pr1.png")',
@@ -13,8 +14,9 @@ const fondosPorPregunta = [
   'url("/pr4.png")',
   'url("/pr5.png")',
   'url("/pr6.png")',
-  'url("/pr7.png")',
   'url("/pr8.png")',
+  'url("/pr71.png")',
+  'url("/pr72.png")',
 ];
 
 const fondosPorPreguntaEng = [
@@ -24,8 +26,9 @@ const fondosPorPreguntaEng = [
   'url("/pr4eng.png")',
   'url("/pr5eng.png")',
   'url("/pr6eng.png")',
-  'url("/pr7eng.png")',
   'url("/pr8eng.png")',
+  'url("/pr71eng.png")',
+  'url("/pr72eng.png")',
 ];
 
 export default function Home() {
@@ -34,6 +37,7 @@ export default function Home() {
     const [cotizacion, setCotizacion] = useState(0);
     const [iteracion, setIteracion] = useState(0);
     const [nombre, setNombre] = useState("");
+    const [idUnico, setIdUnico] = useState(""); // Estado para almacenar el ID único
 
     const arrayPreguntas = [
       <Pr1 dispatch={dispatch} setIteracion={setIteracion} key={"pr1"}/>,
@@ -42,8 +46,8 @@ export default function Home() {
       <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
       <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
       <Extras dispatch={dispatch} key={"extras"}/>,
-      <Pr7 dispatch={dispatch} setIteracion={setIteracion} key={"pr7"}/>,
-      <Formulario setBoton={setBotonClickeado} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formularioFinal"}/>
+      <Formulario setIdUnico={setIdUnico} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formularioFinal"} setIteracion={setIteracion}/>,
+      <Pr7 pr1={state.pr1} setBoton={setBotonClickeado} key={"pr7"} dispatch={dispatch} />,
     ];
 
     const handleClickCotizar = () => {
@@ -52,10 +56,43 @@ export default function Home() {
         setIteracion(it => it + 1);
     }
 
+    
+    useEffect(() => {
+        if (botonClickeado) {
+          fpixel.event("Lead", {
+                value: cotizacion,
+                currency: "MXN"
+              },
+              {
+                eventID: idUnico
+              });
+            }
+    }, [botonClickeado]);  
+
     const seis = useTranslations("pr6");
 
-    const fondoEstilo = seis("pie") == "eng" ? {
+    const fondoEstilo = seis("pie") == "eng" ? iteracion > 6 && state.pr1 <= 15000 ? {
+        backgroundImage: fondosPorPreguntaEng[7] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    } : iteracion > 6 && state.pr1 > 15000 ? {
+        backgroundImage: fondosPorPreguntaEng[8] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    } : {
         backgroundImage: fondosPorPreguntaEng[iteracion] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    } : iteracion > 6 && state.pr1 <= 15000 ? {
+        backgroundImage: fondosPorPregunta[7] || 'none',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "99%",
+    } : iteracion > 6 && state.pr1 > 15000 ? {
+        backgroundImage: fondosPorPregunta[8] || 'none',
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
         backgroundSize: "99%",
@@ -71,7 +108,7 @@ export default function Home() {
     return (
         <>
         {
-            botonClickeado ? <Respuesta cotizacion={cotizacion} nombre={nombre} /> : (
+            botonClickeado ? state.pr1 <= 15000 && state.pr7 == 49000 ? <RespuestaNo1 nombre={nombre} /> : state.pr1 > 15000 && state.pr7 == 99000 ? <RespuestaNo2 nombre={nombre} /> : state.pr1 > 15000 && state.pr7 == 149000 ? <RespuestaNo3 nombre={nombre} /> : <Respuesta cotizacion={cotizacion} nombre={nombre} /> : (
                 <>
                     <main>
                         <section className="contenedorPreguntas" style={fondoEstilo}>

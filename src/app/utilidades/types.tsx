@@ -24,9 +24,10 @@ export type Respuesta = {
 }
 
 export type Formulario = {
-    setBoton: React.Dispatch<React.SetStateAction<boolean>>;
+    setIdUnico: React.Dispatch<React.SetStateAction<string>>;
     setNombre: React.Dispatch<React.SetStateAction<string>>;
     datos: Estado;
+    setIteracion: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export type EstadoFormulario = {    

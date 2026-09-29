@@ -5,9 +5,8 @@ import { useState } from "react";
 import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 import DateSplitInput from "./selectorFechas";
-import * as fpixel  from "../../utilidades/fpixel";
-import { v4 as uuidv4 } from 'uuid';
 import {useSearchParams} from "next/navigation";
+import { v4 as uuidv4 } from 'uuid';
 
 type SimulatedEvent = {
   target: {
@@ -18,7 +17,7 @@ type SimulatedEvent = {
 
 declare const grecaptcha: any;
 
-export function Formulario({ setBoton, setNombre, datos }: Formulario) {
+export function Formulario({ setIdUnico, setNombre, datos, setIteracion }: Formulario) {
   const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState<EstadoFormulario>({
@@ -39,8 +38,6 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     }));
   };
 
-  const idUnico = uuidv4(); // Genera un ID único para el evento
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const captchaToken = grecaptcha.getResponse();
@@ -49,13 +46,7 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     const utm_campaign = searchParams.get('utm_campaign') || '';
     const utm_content = searchParams.get('utm_content') || '';
 
-    fpixel.event("Lead", {
-      value: datos.cotizacion,
-      currency: "MXN"
-    },
-    {
-      eventID: idUnico
-    });
+    const idUnico = uuidv4(); // Genera un ID único para el evento
 
     try {
       await enviarDatos({
@@ -72,8 +63,9 @@ export function Formulario({ setBoton, setNombre, datos }: Formulario) {
     } catch (error) {
       console.error("Error al enviar los datos:", error);
     } finally {
-      setBoton(true);
       setNombre(formData["data[Client][first_name]"]);
+      setIteracion(it => it + 1);
+      setIdUnico(idUnico); // Guardar el ID único en el estado
     }
   };
 
