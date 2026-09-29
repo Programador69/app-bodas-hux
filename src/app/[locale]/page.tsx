@@ -59,14 +59,16 @@ export default function Home() {
     
     useEffect(() => {
         if (botonClickeado) {
-          fpixel.event("Lead", {
-                value: cotizacion,
-                currency: "MXN"
-              },
-              {
-                eventID: idUnico
-              });
+            if ((state.pr1 <= 15000 && state.pr7 > 49000) || (state.pr1 > 15000 && state.pr7 > 149000)) {
+                fpixel.event("Lead", {
+                      value: cotizacion,
+                      currency: "MXN"
+                    },
+                    {
+                      eventID: idUnico
+                    });
             }
+        }
     }, [botonClickeado]);  
 
     const seis = useTranslations("pr6");
