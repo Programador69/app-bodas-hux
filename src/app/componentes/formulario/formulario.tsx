@@ -2,11 +2,9 @@
 import "./formulario.css";
 import type { EstadoFormulario, Formulario } from "../../utilidades/types";
 import { useState } from "react";
-import { enviarDatos } from "@/app/actions";
 import { useTranslations } from "next-intl";
 import DateSplitInput from "./selectorFechas";
 import {useSearchParams} from "next/navigation";
-import { v4 as uuidv4 } from 'uuid';
 
 type SimulatedEvent = {
   target: {
@@ -17,7 +15,7 @@ type SimulatedEvent = {
 
 declare const grecaptcha: any;
 
-export function Formulario({ setIdUnico, setNombre, datos, setIteracion }: Formulario) {
+export function Formulario({ setNombre, setDatosEnviar, setIteracion }: Formulario) {
   const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState<EstadoFormulario>({
@@ -46,27 +44,18 @@ export function Formulario({ setIdUnico, setNombre, datos, setIteracion }: Formu
     const utm_campaign = searchParams.get('utm_campaign') || '';
     const utm_content = searchParams.get('utm_content') || '';
 
-    const idUnico = uuidv4(); // Genera un ID único para el evento
+    setDatosEnviar({
+      action: e.currentTarget.action,
+      method: e.currentTarget.method,
+      formData,
+      captchaToken,
+      utm_source,
+      utm_campaign,
+      utm_content
+    }); // Guardar los datos del formulario en el estado
 
-    try {
-      await enviarDatos({
-        action: e.currentTarget.action,
-        method: e.currentTarget.method,
-        formData,
-        datos,
-        captchaToken,
-        idMeta: idUnico,
-        utm_source,
-        utm_campaign,
-        utm_content
-      });
-    } catch (error) {
-      console.error("Error al enviar los datos:", error);
-    } finally {
-      setNombre(formData["data[Client][first_name]"]);
-      setIteracion(it => it + 1);
-      setIdUnico(idUnico); // Guardar el ID único en el estado
-    }
+    setNombre(formData["data[Client][first_name]"]);
+    setIteracion(it => it + 1);
   };
 
   const t = useTranslations("formulario");

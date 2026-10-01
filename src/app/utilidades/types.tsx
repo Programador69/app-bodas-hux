@@ -23,10 +23,19 @@ export type Respuesta = {
     nombre: string
 }
 
+export type DatosEnviar = {
+    action: string;
+    method: string;
+    formData: EstadoFormulario;
+    captchaToken: any;
+    utm_source: string;
+    utm_campaign: string;
+    utm_content: string;
+}
+
 export type Formulario = {
-    setIdUnico: React.Dispatch<React.SetStateAction<string>>;
     setNombre: React.Dispatch<React.SetStateAction<string>>;
-    datos: Estado;
+    setDatosEnviar: React.Dispatch<React.SetStateAction<DatosEnviar>>;
     setIteracion: React.Dispatch<React.SetStateAction<number>>;
 }
 

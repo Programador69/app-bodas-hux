@@ -6,6 +6,7 @@ import { Pr1, Pr2, Pr3, Pr4, Pr5, Extras, Pr7 } from "../componentes/formulario/
 import { Respuesta, Formulario, RespuestaNo1, RespuestaNo2, RespuestaNo3 } from "../componentes";
 import { useTranslations } from "next-intl";
 import * as fpixel  from "../utilidades/fpixel";
+import { v4 as uuidv4 } from 'uuid';
 
 const fondosPorPregunta = [
   'url("/pr1.png")',
@@ -37,7 +38,24 @@ export default function Home() {
     const [cotizacion, setCotizacion] = useState(0);
     const [iteracion, setIteracion] = useState(0);
     const [nombre, setNombre] = useState("");
-    const [idUnico, setIdUnico] = useState(""); // Estado para almacenar el ID único
+    const [datosEnviar, setDatosEnviar] = useState({
+        action: "",
+        method: "",
+        formData: {
+            "data[Client][first_name]": "",
+            "data[Client][last_name]": "",
+            "data[Client][cellphone]": "",
+            "data[Client][email]": "",
+            "data[Client][fecha_de_la_boda]": "",
+            "data[Client][nombre_de_la_pareja]": ""
+        },
+        captchaToken: null,
+        utm_source: "",
+        utm_campaign: "",
+        utm_content: ""
+    });
+
+    const idUnico = uuidv4(); // Genera un ID único para el evento
 
     const arrayPreguntas = [
       <Pr1 dispatch={dispatch} setIteracion={setIteracion} key={"pr1"}/>,
@@ -46,8 +64,8 @@ export default function Home() {
       <Pr4 dispatch={dispatch} setIteracion={setIteracion} key={"pr4"}/>,
       <Pr5 dispatch={dispatch} setIteracion={setIteracion} key={"pr5"}/>,
       <Extras dispatch={dispatch} key={"extras"}/>,
-      <Formulario setIdUnico={setIdUnico} setNombre={setNombre} datos={{...state, cotizacion: cotizacion}} key={"formularioFinal"} setIteracion={setIteracion}/>,
-      <Pr7 pr1={state.pr1} setBoton={setBotonClickeado} key={"pr7"} dispatch={dispatch} />,
+      <Formulario setNombre={setNombre} setDatosEnviar={setDatosEnviar} key={"formularioFinal"} setIteracion={setIteracion}/>,
+      <Pr7 pr1={state.pr1} datos={{...state, cotizacion: cotizacion}} datosEnviar={datosEnviar} idUnico={idUnico} setBoton={setBotonClickeado} key={"pr7"} dispatch={dispatch} />,
     ];
 
     const handleClickCotizar = () => {
@@ -56,7 +74,6 @@ export default function Home() {
         setIteracion(it => it + 1);
     }
 
-    
     useEffect(() => {
         if (botonClickeado) {
             if ((state.pr1 <= 15000 && state.pr7 > 49000) || (state.pr1 > 15000 && state.pr7 > 149000)) {
